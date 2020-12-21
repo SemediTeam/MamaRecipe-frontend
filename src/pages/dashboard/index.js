@@ -20,7 +20,7 @@ export class Dashboard extends Component {
                         </div>
                         <div className="search d-flex">
                             <img alt="" src={SearchIcon}/>
-                           <input className="inputt" />
+                           <input className="input-search" />
                         </div>
                     </div>
                 </div>
