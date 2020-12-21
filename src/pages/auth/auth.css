@@ -23,11 +23,11 @@
   cursor: pointer;
   color: #cea905;
 }
-.input{
+.inputauth{
   background-color: #ffffff !important;
   box-sizing: border-box;
   border-radius: 6px;
-}.input:hover, input:focus{box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11) !important; border: 1px solid #EFC81A !important;}
+}.inputauth:hover, inputauth:focus{box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.11) !important; border: 1px solid #EFC81A !important;}
 .font-weight-medium{
   font-weight: 500;
 }
