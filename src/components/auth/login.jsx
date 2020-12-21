@@ -7,16 +7,16 @@ export default class Login extends Component {
     return (
       <>
         <h2 className="main-color font-weight-bold">Welcome</h2>
-        <span className="blur-color mt-4 mb-4 font-weight-normal">Log In into your existing account</span>
+        <span className="blur-color mt-4 mb-4 font-weight-normal text-center">Log In into your existing account</span>
         <Form className="w-100 mb-3 mt-3">
           <Form.Group controlId="formBasicEmail">
             <Form.Label>E-mail</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" className="pt-4 pb-4 pl-4 pr-0 inputauth" required/>
+            <Form.Control type="email" placeholder="Enter email" className="pt-4 pb-4 pl-4 pr-0 input" required/>
           </Form.Group>
 
           <Form.Group controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" className="pt-4 pb-4 pl-4 pr-0 inputauth" required/>
+            <Form.Control type="password" placeholder="Password" className="pt-4 pb-4 pl-4 pr-0 input" required/>
           </Form.Group>
           <Form.Group controlId="formBasicCheckbox">
             <Form.Check type="checkbox" label="I agree to terms & conditions" required/>

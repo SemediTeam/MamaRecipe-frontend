@@ -8,7 +8,7 @@ import { Route } from 'react-router-dom';
 export default class Auth extends Component {
   render() {
     return (
-      <div className="container-fluid h-100">
+      <div className="container-fluid ">
         <div className="row container-xxl">
           <div className="position-relative d-none d-md-block col-md-4 col-lg-6 p-0" style={{backgroundColor : 'yellow'}}>
             <img src='
