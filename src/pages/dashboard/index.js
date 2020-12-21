@@ -37,7 +37,10 @@ export class Dashboard extends Component {
                     </div>
                     <div className="right-sub"></div>
                 </div>
+<<<<<<< HEAD
                 
+=======
+>>>>>>> dev-fachri
             </div>
 
                 

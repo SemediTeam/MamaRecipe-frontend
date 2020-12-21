@@ -69,7 +69,11 @@
     border: none;
     height: 70px;
     width: 500px;
+<<<<<<< HEAD
     background-color: transparent;
+=======
+    background-color:  #EFEFEF;
+>>>>>>> dev-fachri
     outline: none;
 }
 .point-title{
