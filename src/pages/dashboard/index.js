@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { ImgDashboard, UserIcon } from '../../assets'
+import { ImgDashboard, SearchIcon, UserIcon } from '../../assets'
 import './dashboard.css'
 
 export class Dashboard extends Component {
@@ -19,7 +19,8 @@ export class Dashboard extends Component {
                             <p className="txt-title">Discover Recipe & Delicious Food</p>
                         </div>
                         <div className="search d-flex">
-                           <input className="input" />
+                            <img alt="" src={SearchIcon}/>
+                           <input className="inputt" />
                         </div>
                     </div>
                 </div>
@@ -37,10 +38,6 @@ export class Dashboard extends Component {
                     </div>
                     <div className="right-sub"></div>
                 </div>
-<<<<<<< HEAD
-                
-=======
->>>>>>> dev-fachri
             </div>
 
                 
