@@ -25,23 +25,23 @@ export default class Register extends Component {
         <Form className="w-100 mb-3 mt-3">
           <Form.Group controlId="formBasicText">
             <Form.Label>E-mail</Form.Label>
-            <Form.Control type="text" placeholder="Enter Name" className="pt-4 pb-4 pl-4 pr-0 input" required/>
+            <Form.Control type="text" placeholder="Enter Name" className="pt-4 pb-4 pl-4 pr-0 input-auth" required/>
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address*</Form.Label>
-            <Form.Control type="email" placeholder="Enter email address" className="pt-4 pb-4 pl-4 pr-0 input" required/>
+            <Form.Control type="email" placeholder="Enter email address" className="pt-4 pb-4 pl-4 pr-0 input-auth" required/>
           </Form.Group>
           <Form.Group controlId="formBasicNumber">
             <Form.Label>Phone Number</Form.Label>
-            <Form.Control type="number" placeholder="08xxxxxxxxxx" className="pt-4 pb-4 pl-4 pr-0 input" required/>
+            <Form.Control type="number" placeholder="08xxxxxxxxxx" className="pt-4 pb-4 pl-4 pr-0 input-auth" required/>
           </Form.Group>
           <Form.Group controlId="formBasicPassword">
             <Form.Label>Create New Password</Form.Label>
-            <Form.Control type="password" placeholder="Create New Password" className="pt-4 pb-4 pl-4 pr-0 input" required/>
+            <Form.Control type="password" placeholder="Create New Password" className="pt-4 pb-4 pl-4 pr-0 input-auth" required/>
           </Form.Group>
           <Form.Group controlId="formBasicConfirmPassword">
             <Form.Label>New Password</Form.Label>
-            <Form.Control type="password" placeholder="New Password" className="pt-4 pb-4 pl-4 pr-0 input" required/>
+            <Form.Control type="password" placeholder="New Password" className="pt-4 pb-4 pl-4 pr-0 input-auth" required/>
           </Form.Group>
           <Form.Group controlId="formBasicCheckbox">
             <Form.Check type="checkbox" label="I agree to terms & conditions" required/>

@@ -13,7 +13,7 @@ export default class ForgotPassword extends Component {
         <Form className="w-100 mb-3 mt-3">
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" className="pt-4 pb-4 pl-4 pr-0 input" required/>
+            <Form.Control type="email" placeholder="Enter email" className="pt-4 pb-4 pl-4 pr-0 input-auth" required/>
           </Form.Group>
           
           <Link to="/auth/validation">
