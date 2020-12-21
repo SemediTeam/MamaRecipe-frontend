@@ -44,8 +44,8 @@ export default class Register extends Component {
         }
       }) //bugs on response status
       .then((e)=>{
-        console.log('succsess create new data');
         console.log(e);
+        // console.log('succsess create new data');
         // this.props.history.push('/auth/signin');
       }).catch((e)=>{
         console.log(e.response);
@@ -61,16 +61,14 @@ export default class Register extends Component {
         // }
       })
     }
-
   }
 
   render() {
-    console.log(this.state);
     return (
       <>
         <h2 className="main-color font-weight-bold text-center">Let’s Get Started !</h2>
         <span className="blur-color mt-4 mb-4 font-weight-normal text-center">Create new account to access all features</span>
-        <Form className="w-100 mb-3 mt-3"  onSubmit={this.handlerSubmit}>
+        <Form className="w-100 mb-3 mt-3" onSubmit={this.handlerSubmit}>
           <Form.Group controlId="formBasicText">
             <Form.Label>Name</Form.Label>
             <Form.Control type="text" placeholder="Enter Name" className="pt-4 pb-4 pl-4 pr-0 input-auth" name="name" required onChange={this.handlerChange}/>
