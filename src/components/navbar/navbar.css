@@ -1,0 +1,19 @@
+.top-navbar{
+  position: sticky;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  height: 75px;
+  /* background-color: #e0e0e0; */
+}
+.active-navbar{
+  background-color: #ffffff;
+}
+.clicked:hover{
+  cursor: pointer;
+  color: #cea905;
+  text-decoration: underline;
+}
+.font-weight-medium{
+  font-weight: 500;
+}

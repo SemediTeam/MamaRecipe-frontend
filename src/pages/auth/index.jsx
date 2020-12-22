@@ -21,7 +21,7 @@ export default class Auth extends Component {
           </div>
 
           <div className="full-h d-flex justify-content-center align-items-center col-12 col-md-8 col-lg-6">
-            <div className="col-10 col-md-8 col-xl-6 d-flex flex-column justify-content-center align-items-center font-weight-medium">
+            <div className="col-10 col-md-8 col-xl-6 d-flex flex-column justify-content-center align-items-center font-weight-medium p-0">
               <Route exact path={this.props.match.path} component={Login} />
               <Route exact path={`${this.props.match.path}/signin`} component={Login} />
               <Route exact path={`${this.props.match.path}/signup`} component={Register} />
