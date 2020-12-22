@@ -20,9 +20,9 @@ export class Profile extends Component {
             </div>
             <div className="container">
                 <div className="col-lg-5 d-flex justify-content-between bg-warning">
-                    <Link>My Recipe</Link>
-                    <Link>Saved Recipe</Link>
-                    <Link>Liked Recipe</Link>
+                    <Link className="txt-profile text-decoration-none">My Recipe</Link>
+                    <Link className="txt-profile">Saved Recipe</Link>
+                    <Link className="txt-profile">Liked Recipe</Link>
                 </div>
             </div>
             </>
