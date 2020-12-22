@@ -38,7 +38,7 @@ export default class Navbar extends Component {
       <>
         <div className="w-100 mt-3"></div>
         <div className={this.state.Scroll}>
-          <div className="container-fluid h-100 d-flex justify-content-between pl-lg-5 pr-lg-5">
+          <div className="container-fluid h-100 d-flex justify-content-between pl-xl-5 pr-xl-5">
             <div className="col-4 col-lg-3 d-none d-lg-flex align-items-center justify-content-between text-decoration-none font-weight-medium pl-5 pr-xl-5">
               <p className="clicked m-0 mr-lg-5" onClick={(e)=>{
                 e.preventDefault()
