@@ -13,7 +13,6 @@ export class Dashboard extends Component {
                 <Popular />
                 <New />
                 <ListRecipe/>
-                
             </div>
         )
     }
