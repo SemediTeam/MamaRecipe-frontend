@@ -30,7 +30,7 @@ export default class Detail extends Component {
                 </div>
                 <div className="mt-5 mb-5 w-100">
                   <h2 className="mb-5">Ingredients</h2>
-                  <p className="m-0 font-weight-medium">a \n bcd \n ef /n hai</p>
+                  <p className="m-0 font-weight-medium">Loading Ingredients step . . .</p>
                 </div>
                 <div className="mt-5 mb-5 w-100">
                   <h2 className="mb-5">Video Step</h2>
