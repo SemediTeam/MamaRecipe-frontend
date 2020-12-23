@@ -1,0 +1,23 @@
+.section-profile{
+    height: 300px;
+    margin-top: 150px;
+}
+.img-profile-section{
+    height: 172px;
+    width: 172px;
+    position: relative;
+}
+.img-profile{
+    height: 172px;
+    width: 172px;
+    border-radius: 100px;
+    position: absolute;
+}
+.edit-profile{
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 150px;
+}
+.txt-profile{
+    color: black;
+}

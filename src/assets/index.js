@@ -11,11 +11,12 @@ import Recipe6 from './image/recipe6.jpg'
 import UserIcon from './icon/UserIcon.png'
 import LogoAuth from './icon/LogoAuth.svg';
 import SearchIcon from './icon/search.png'
+import Edit from './icon/edit.png'
 
 //loader
 import imgLoader from "./image/loader_main.gif";
 
 
 
-export {ImgDashboard, UserIcon, LogoAuth, SearchIcon, Recipe1, Recipe2, Recipe3 ,Recipe4 ,Recipe5, Recipe6}
+export {ImgDashboard, UserIcon, LogoAuth, SearchIcon, Recipe1, Recipe2, Recipe3 ,Recipe4 ,Recipe5, Recipe6, Edit}
 export {imgLoader}
