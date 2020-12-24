@@ -1,5 +1,5 @@
 .full-h{
-  height: 100vh;
+  min-height: 100vh;
 }
 .img-recipe-detail{
   max-height: 700px;

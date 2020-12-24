@@ -12,7 +12,7 @@ export default class Dashboard extends Component {
       <>
         <Route exact path={this.props.match.path} component={Navbar}/>
         <div className="dashboard position-absolute container-fluid p-0">
-          <div className="position-relative w-100 full-h d-flex justify-content-between pl-0 pl-xl-5 pr-0">
+          <div className="position-relative w-100 d-flex justify-content-between pl-0 pl-xl-5 pr-0" style={{height:'100vh'}}>
             <div className="dashboard-background d-flex d-md-none w-100 h-100 position-absolute">
               <div className="w-100 h-100" style={{backgroundColor: '#00000080'}}></div>
               <img src={ImgDashboard} alt="background" className="w-100 h-100 position-absolute dashboard-background" style={{objectFit: 'cover', objectPosition:'center'}}/>

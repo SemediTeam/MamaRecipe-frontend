@@ -4,7 +4,7 @@
   left: 0;
 }
 .full-h{
-  height: 100vh;
+  min-height: 100vh;
 }
 .dashboard-search{
   background-color: #efefef;

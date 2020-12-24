@@ -1,5 +1,5 @@
 .full-h{
-  height: 100vh;
+  min-height: 100vh;
 }
 .mask{
   background-color: #EFC81A9d;

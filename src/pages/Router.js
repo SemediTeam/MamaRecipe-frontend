@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Route } from 'react-router-dom'
 import { Provider } from 'react-redux';
-import { PrivateRouter } from "../components/utilities";
+import { PrivateRouter, LoginCheck } from "../components/utilities";
 
 import Dashboard from './dashboard'
 import Auth from './auth';
@@ -14,7 +14,11 @@ export default function Router() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <Route path="/auth" component={Auth}/>
+
+        <LoginCheck path="/auth">
+          <Route component={Auth}/>
+        </LoginCheck>
+        
         <Route path="/" exact component={Dashboard}/>
         <Route path="/recipe" component={Detail}/>
         <Route path="/addRecipe" />
