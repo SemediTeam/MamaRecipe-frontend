@@ -41,7 +41,7 @@ export default class Dashboard extends Component {
             </div>
             <div className="h-100 d-none d-md-flex col-md-4 pr-0 pr-xl-5 pl-0" style={{backgroundColor: '#EFC81A'}}>
               <div className="col-12 position-relative h=100 d-flex align-items-center justify-content-end pr-0 pr-xl-5 pl-0">
-                <div className="dashboard-img-header">
+                <div className="dashboard-img-header pr-3 pr-xl-0">
                   <img src={ImgDashboard} alt="header" className="w-100 h-100 p-0" style={{objectFit: 'cover', objectPosition:'center', borderRadius:'15px'}}/>
                 </div>
               </div>

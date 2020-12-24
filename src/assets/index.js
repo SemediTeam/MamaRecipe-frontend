@@ -10,8 +10,9 @@ import Recipe5 from './image/recipe5.jpg'
 import Recipe6 from './image/recipe6.jpg'
 import Image1 from './image/img1.jpg'
 import Image2 from './image/img2.jpg'
+
 //icon
-import UserIcon from './icon/UserIcon.png'
+import UserIcon from './icon/defaultUserIcon.png'
 import LogoAuth from './icon/LogoAuth.svg';
 import SearchIcon from './icon/SearchIcon.svg'
 import Edit from './icon/edit.png'
@@ -21,5 +22,6 @@ import imgLoader from "./image/loader_main.gif";
 
 
 
-export {ImgDashboard, UserIcon, LogoAuth, SearchIcon, Recipe1, Recipe2, Recipe3 ,Recipe4 ,Recipe5, Recipe6, Edit, Popular, New, Image1, Image2}
+export {ImgDashboard, Recipe1, Recipe2, Recipe3 ,Recipe4 ,Recipe5, Recipe6, Popular, New, Image1, Image2}
+export {UserIcon, LogoAuth, SearchIcon, Edit}
 export {imgLoader}

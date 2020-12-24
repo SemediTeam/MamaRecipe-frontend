@@ -3,11 +3,14 @@ import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+import { connect } from 'react-redux';
+import { authLoginAction } from '../../global/actionCreators/auth';
+
 const api = axios.create({
   baseURL: process.env.REACT_APP_BASEURL
 });
 
-export default class Login extends Component {
+class Login extends Component {
   constructor(){
     super()
     this.state = {
@@ -40,6 +43,7 @@ export default class Login extends Component {
       }
       // this.props.dispatch(authLogin())
       localStorage.setItem('token', JSON.stringify(payload))
+      this.props.dispatch(authLoginAction())
       this.props.history.push('/')
     }).catch((e)=>{
       if (e.response.data.error === 'User Not Found') {
@@ -95,3 +99,11 @@ export default class Login extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return{
+    auth: state
+  }
+}
+
+export default connect(mapStateToProps)(Login)
