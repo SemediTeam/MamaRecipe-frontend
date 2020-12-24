@@ -1,6 +1,6 @@
 .section-profile{
     height: 300px;
-    margin-top: 150px;
+    margin-top: 100px;
 }
 .img-profile-section{
     height: 172px;
@@ -20,4 +20,18 @@
 }
 .txt-profile{
     color: black;
+}
+.line{
+    margin-top: 30px;
+    border: 1px solid #DFDFDF ;
+}
+.img-recipe-profile{
+    height: 120px;
+    width: 250px;
+}
+.img-recipe{
+    height: 120px;
+    width: 250px;
+    border-radius: 15px;
+    object-fit: cover;
 }
