@@ -21,6 +21,5 @@ import imgLoader from "./image/loader_main.gif";
 
 
 
-export {ImgDashboard, UserIcon, LogoAuth, SearchIcon, Recipe1, Recipe2, Recipe3 ,Recipe4 ,Recipe5, Recipe6, Edit, Popular, New}
+export {ImgDashboard, UserIcon, LogoAuth, SearchIcon, Recipe1, Recipe2, Recipe3 ,Recipe4 ,Recipe5, Recipe6, Edit, Popular, New, Image1, Image2}
 export {imgLoader}
-export {ImgDashboard, UserIcon, LogoAuth, SearchIcon, Recipe1, Recipe2, Recipe3 ,Recipe4 ,Recipe5, Recipe6, Edit, Image1, Image2}

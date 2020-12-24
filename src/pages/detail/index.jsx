@@ -18,7 +18,7 @@ export default class Detail extends Component {
               <div className="w-100 d-flex flex-column align-items-center">
                 <h1 className="mb-5 text-center">Loading Title ...</h1>
                 <div className="position-relative col-12 col-md-11 col-lg-10 col-xl-9 mb-5 p-0">
-                  <img src={imgLoader} alt="recipeImage" className="w-100 p-0 img-recipe detail-rounded"/>
+                  <img src={imgLoader} alt="recipeImage" className="w-100 p-0 img-recipe-detail detail-rounded"/>
                   <div className="action-user position-absolute row w-50 d-flex justify-content-end">
                     <div className="detail-rounded clicked p-3 p-sm-4 mr-3" style={{backgroundColor: '#e0e0e0'}}>
 
