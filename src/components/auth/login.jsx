@@ -32,25 +32,27 @@ export default class Login extends Component {
       headers: {
         'Content-Type': 'application/json'
       }
-    }) //bugs on response status
-    .then((data)=>{
-      console.log(data);
+    })
+    .then(({data})=>{
+      const payload = {
+        email : data.data.email,
+        token : data.data.auth.token
+      }
       // this.props.dispatch(authLogin())
-      // localStorage.setItem('token', JSON.stringify(data.data))
-      // this.props.history.push('/')
+      localStorage.setItem('token', JSON.stringify(payload))
+      this.props.history.push('/')
     }).catch((e)=>{
-      console.log(e.response);
-      // if (e.response.status === 404) {
-      //   this.setState({
-      //     errMsg : 'Email not found'
-      //   })
-      // }
-      // if (e.response.status === 401) {
-      //   this.setState({
-      //     errMsg : 'Wrong Password',
-      //     password: ''
-      //   })
-      // }
+      if (e.response.data.error === 'User Not Found') {
+        this.setState({
+          errMsg : 'Email not found'
+        })
+      }
+      if (e.response.data.error === 'Wrong Password') {
+        this.setState({
+          errMsg : 'Wrong Password',
+          password: ''
+        })
+      }
     })
   }
 
@@ -59,6 +61,7 @@ export default class Login extends Component {
       <>
         <h2 className="main-color font-weight-bold">Welcome</h2>
         <span className="blur-color mt-4 mb-4 font-weight-normal text-center">Log In into your existing account</span>
+        <span className="w-100" style={{color: 'red', textAlign: 'center'}}>{this.state.errMsg}</span>
         <Form className="w-100 mb-3 mt-3" onSubmit={this.handlerSubmit}>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>E-mail</Form.Label>
@@ -67,7 +70,7 @@ export default class Login extends Component {
 
           <Form.Group controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" className="pt-4 pb-4 pl-4 pr-0 input-auth" name="password" required onChange={this.handlerChange}/>
+            <Form.Control type="password" placeholder="Password" value={this.state.password} className="pt-4 pb-4 pl-4 pr-0 input-auth" name="password" required onChange={this.handlerChange}/>
           </Form.Group>
           <Form.Group controlId="formBasicCheckbox">
             <Form.Check type="checkbox" label="I agree to terms & conditions" required/>
