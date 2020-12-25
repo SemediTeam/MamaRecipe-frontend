@@ -84,7 +84,7 @@ class Navbar extends Component {
         <div className="w-100 mt-3"></div>
         <div className={this.state.Scroll}>
           <div className="container-fluid h-100 d-flex justify-content-end justify-content-lg-between pl-xl-5 pr-xl-5">
-            <div className="col-4 col-lg-3 d-none d-lg-flex align-items-center justify-content-between text-decoration-none font-weight-medium pl-0 pl-xl-5 pr-0 pr-xl-5">
+            <div className="col-4 col-lg-3 d-none d-lg-flex align-items-center justify-content-between text-decoration-none font-weight-medium pl-3 pl-xl-5 pr-0 pr-xl-5">
               <p className="clicked m-0 mr-lg-5" onClick={(e)=>{
                 e.preventDefault()
                 this.props.history.push('/')
@@ -95,7 +95,7 @@ class Navbar extends Component {
                 this.props.history.push('/profile')
               }}>Profile</p>
             </div>
-            <div className="col-4 col-lg-3 d-none d-md-flex align-items-center justify-content-end text-decoration-none font-weight-medium pr-0 pr-xl-5">
+            <div className="col-4 col-lg-3 d-none d-md-flex align-items-center justify-content-end text-decoration-none font-weight-medium pr-3 pr-xl-5">
               <img src={UserIcon} alt="user" className="rounded-circle navbar-user-icon clicked" onClick={(e)=>{e.preventDefault(); this.props.history.push('/profile')}}/>
               <div className="d-flex flex-row flex-nowrap pl-4 pr-3 pr-xl-0">
                 {this.conditionalAuth()}
