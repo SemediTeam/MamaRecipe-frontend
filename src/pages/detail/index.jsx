@@ -11,7 +11,7 @@ export default class Detail extends Component {
   render() {
     return (
       <>
-        <Route exact path={this.props.match.path} component={Navbar}/>
+        <Route path={this.props.match.path} component={Navbar}/>
         <div className="position-relative container-fluid mt-5 pl-xl-5 pr-xl-5">
           <div className="w-100 full-h d-flex justify-content-center">
             <div className="col-12 col-md-11 col-lg-10 col-xl-9">

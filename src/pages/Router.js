@@ -23,7 +23,7 @@ export default function Router() {
         <Route path="/recipe" component={Detail}/>
         <Route path="/addRecipe" />
         
-        <PrivateRouter path="/profile/:menu">
+        <PrivateRouter path="/profile">
           <Route component={Profile}/>
         </PrivateRouter>
         

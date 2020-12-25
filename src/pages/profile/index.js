@@ -8,13 +8,11 @@ export class Profile extends Component {
     render() {
         return (
             <>
-            <Route exact path={this.props.match.path} component={Navbar} />
+            <Route path={this.props.match.path} component={Navbar} />
             <div className="container section-profile d-flex justify-content-center flex-column align-items-center">
                 <div className="img-profile-section">
                     <img alt="user-profile" src={UserIcon} className="img-profile"/>
-                    <Link>
-                        <img alt="pen-edit" src={Edit} className="edit-profile" />
-                    </Link>
+                    <img alt="pen-edit" src={Edit} className="edit-profile clicked" />
                 </div>
                 <div className="mt-4">
                     <h2 className="text-center">loading profile ...</h2>
