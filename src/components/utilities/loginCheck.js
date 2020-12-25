@@ -8,9 +8,7 @@ function LoginCheck({children, auth, ...rest}) {
       {...rest}
       render={() =>
         auth.auth.isLogin ? (
-          <Redirect
-            to={{ pathname: '/' }}
-          />
+          <Redirect to={{ pathname: '/' }}/>
         ) : ( children )
       }
     />

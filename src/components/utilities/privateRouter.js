@@ -8,9 +8,7 @@ function PrivateRouter({children, auth, ...rest}) {
       {...rest}
       render={() =>
         auth.auth.isLogin ? ( children ) : (
-          <Redirect
-            to={{ pathname: "/auth" }}
-          />
+          <Redirect to={{ pathname: "/auth" }}/>
         )
       }
     />

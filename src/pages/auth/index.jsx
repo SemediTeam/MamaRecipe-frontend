@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './auth.css';
 import { LogoAuth } from '../../assets';
 import {Login,Register,ForgotPassword,Validate} from "../../components/auth";
-import { Route } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 export default class Auth extends Component {
   render() {
@@ -22,11 +22,16 @@ export default class Auth extends Component {
 
           <div className="full-h d-flex justify-content-center align-items-center col-12 col-md-8 col-lg-6">
             <div className="col-10 col-md-8 col-xl-6 d-flex flex-column justify-content-center align-items-center font-weight-medium p-0">
-              <Route exact path={this.props.match.path} component={Login} />
-              <Route exact path={`${this.props.match.path}/signin`} component={Login} />
-              <Route exact path={`${this.props.match.path}/signup`} component={Register} />
-              <Route exact path={`${this.props.match.path}/forgotpassword`} component={ForgotPassword} />
-              <Route exact path={`${this.props.match.path}/validation`} component={Validate} />
+              <Switch>
+                <Route exact path={this.props.match.path} component={Login} />
+                <Route exact path={`${this.props.match.path}/signin`} component={Login} />
+                <Route exact path={`${this.props.match.path}/signup`} component={Register} />
+                <Route exact path={`${this.props.match.path}/forgotpassword`} component={ForgotPassword} />
+                <Route exact path={`${this.props.match.path}/validation`} component={Validate} />
+                <Route path="*" render={()=>
+                  <Redirect to={{ pathname: "/blank" }}/>
+                }/>
+              </Switch>
             </div>
           </div>
         </div>
