@@ -1,16 +1,18 @@
 .top-navbar{
-  position: sticky;
+  position: fixed;
   z-index: 10;
-  top: 0;
+  top: 16px;
   left: 0;
-  height: 75px;
-  /* background-color: #e0e0e0; */
+  min-height: 75px;
+  transition: ease-in-out 150ms;
 }
 .active-navbar{
   background-color: #ffffff;
   -webkit-box-shadow: 0 8px 6px -6px #999;
   -moz-box-shadow: 0 8px 6px -6px #999;
   box-shadow: 0 8px 6px -6px #999;
+  transition: ease-in-out 150ms;
+  top: 0;
 }
 .clicked:hover{
   cursor: pointer;
@@ -25,4 +27,22 @@
   height: 52px;
   object-fit: cover;
   object-position: center;
+}
+.active-burger{
+  background-color: #ffffff;
+}
+.deactive-burger{
+  background-color: transparent;
+  transition: ease-in-out 250ms;
+}
+@media screen and (max-width: 767px){
+  .nav-small{
+    background-color: transparent !important;
+    box-shadow: none !important;
+    flex-basis: auto !important;
+  }
+  .navbar-link-custom{
+    margin-left: -56px ;
+    font-size: x-large;
+  }
 }

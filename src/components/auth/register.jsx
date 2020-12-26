@@ -40,7 +40,7 @@ export default class Register extends Component {
         errMsg : 'Password isn\'t match with Confirm Password'
       })
     } else {
-      await api.post(`auth/register`, data,{
+      await api.post(`/auth/register`, data,{
         headers: {
           'Content-Type': 'application/json'
         }
