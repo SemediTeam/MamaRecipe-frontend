@@ -4,7 +4,7 @@
   left: 0;
 }
 .full-h{
-  height: 100vh;
+  min-height: 100vh;
 }
 .dashboard-search{
   background-color: #efefef;
@@ -18,8 +18,8 @@
 .dashboard-img-header{
   position: absolute;
   z-index: 1;
-  width: 700px;
-  height: 700px;
+  width: 650px;
+  height: 650px;
 }
 .dashboard-background{
   z-index: -1;
@@ -55,7 +55,7 @@
   max-height: 500px;
   border-radius: 15px;
   overflow: hidden;
-}
+}.dashboard-item:hover{box-shadow: 0 0 12px -2px #000000a0;}
 
 @media screen and (max-width: 1566px){
   .dashboard-item{
@@ -65,9 +65,8 @@
 
 @media screen and (max-width: 1280px){
   .dashboard-img-header{
-    width: 600px;
-    height: 600px;
-    padding-right: 15px;
+    width: 550px;
+    height: 550px;
   }
   .dashboard-img-popular{
     width: 500px;

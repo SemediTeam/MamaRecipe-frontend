@@ -15,6 +15,7 @@ export default class Register extends Component {
       email: '',
       phone: '',
       password: '',
+      isVerified: 0,
       matchPass: '',
       errMsg: ''
     }
@@ -28,9 +29,10 @@ export default class Register extends Component {
     event.preventDefault()
     const data = JSON.stringify({
       name : this.state.name,
-      email : this.state.email,
       phone: this.state.phone,
+      email : this.state.email,
       password : this.state.password,
+      isVerified: this.state.isVerified
     })
     
     if (this.state.password !== this.state.matchPass) {
@@ -42,23 +44,20 @@ export default class Register extends Component {
         headers: {
           'Content-Type': 'application/json'
         }
-      }) //bugs on response status
-      .then((e)=>{
-        console.log(e);
-        // console.log('succsess create new data');
-        // this.props.history.push('/auth/signin');
+      })
+      .then(()=>{
+        console.log('succsess create new data');
+        this.props.history.push('/auth/signin');
       }).catch((e)=>{
-        console.log(e.response);
-        // if (e.response.data.message === "failed create new account") {
-        //   this.setState({
-        //     errMsg : 'Email already registred upgrade on your profile setting'
-        //   })
-        // }
-        // if (e.response.data.message === "bad request") {
-        //   this.setState({
-        //     errMsg : 'Store Name already used'
-        //   })
-        // }
+        if (e.response.data.error === "Email already in use!") {
+          this.setState({
+            errMsg : 'Email is already registred'
+          })
+        } else {
+          this.setState({
+            errMsg : 'Something went wrong'
+          })
+        }
       })
     }
   }
@@ -77,7 +76,7 @@ export default class Register extends Component {
             <Form.Label>Email address*</Form.Label>
             <Form.Control type="email" placeholder="Enter email address" className="pt-4 pb-4 pl-4 pr-0 input-auth" name="email" required onChange={this.handlerChange}/>
           </Form.Group>
-          <Form.Group controlId="formBasicNumber">
+          <Form.Group controlId="formBasicPhone">
             <Form.Label>Phone Number</Form.Label>
             <Form.Control type="number" placeholder="08xxxxxxxxxx" className="pt-4 pb-4 pl-4 pr-0 input-auth" name="phone" required onChange={this.handlerChange}/>
           </Form.Group>

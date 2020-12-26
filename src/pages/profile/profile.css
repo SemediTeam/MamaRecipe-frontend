@@ -21,17 +21,20 @@
 .txt-profile{
     color: black;
 }
+.clicked:hover{
+    cursor: pointer;
+    color: #cea905;
+}
 .line{
     margin-top: 30px;
     border: 1px solid #DFDFDF ;
 }
 .img-recipe-profile{
-    height: 120px;
-    width: 250px;
-}
-.img-recipe{
-    height: 120px;
-    width: 250px;
+    max-height: 250px;
+    max-width: 400px;
     border-radius: 15px;
-    object-fit: cover;
+    overflow: hidden;
+}.img-recipe-profile:hover{box-shadow: 0 0 12px -2px #000000a0;}
+.font-weight-medium{
+  font-weight: 500;
 }

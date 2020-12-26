@@ -1,7 +1,7 @@
 .full-h{
-  height: 100vh;
+  min-height: 100vh;
 }
-.img-recipe{
+.img-recipe-detail{
   max-height: 700px;
   object-fit: cover;
   object-position: center;
