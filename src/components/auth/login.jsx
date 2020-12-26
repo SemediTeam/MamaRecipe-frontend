@@ -31,7 +31,7 @@ class Login extends Component {
       password : this.state.password,
     })
     // console.log(data);
-    await api.post(`auth/login`, data,{
+    await api.post(`/auth/login`, data,{
       headers: {
         'Content-Type': 'application/json'
       }

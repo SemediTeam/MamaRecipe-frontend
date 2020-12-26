@@ -1,0 +1,14 @@
+.full-h{
+  min-height: 100vh;
+}
+.blur-color{
+  color: #8692A6;
+}
+.font-weight-medium{
+  font-weight: 500;
+}
+.search{
+  z-index: 1;
+  top: 0;
+  left: 0;
+}

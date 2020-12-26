@@ -1,8 +1,3 @@
-.dashboard{
-  z-index: 1;
-  top: 0;
-  left: 0;
-}
 .full-h{
   min-height: 100vh;
 }
@@ -81,8 +76,8 @@
 }
 @media screen and (max-width: 990px){
   .dashboard-img-header{
-    width: 400px;
-    height: 400px;
+    width: 425px;
+    height: 425px;
   }
   .dashboard-img-popular{
     width: 400px;
@@ -92,7 +87,7 @@
     height: 70%;
   }
 }
-@media screen and (max-width: 768px){
+@media screen and (max-width: 767px){
   .dashboard-header-text{
     color: #EFC81A;
   }
