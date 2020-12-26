@@ -38,7 +38,7 @@ class NavbarSticky extends Component {
   }
 
   changeBackground = () => {
-    if ( window.scrollY  >= 80) {
+    if ( window.scrollY  >= 20) {
       this._isMounted && this.setState({
         Scroll: 'top-navbar active-navbar w-100'
       })

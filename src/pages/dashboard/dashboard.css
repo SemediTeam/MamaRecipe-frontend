@@ -50,7 +50,8 @@
   max-height: 500px;
   border-radius: 15px;
   overflow: hidden;
-}.dashboard-item:hover{box-shadow: 0 0 12px -2px #000000a0;}
+  transition: ease-in-out 150ms;
+}.dashboard-item:hover{box-shadow: 0 0 12px -2px #000000a0;transition: ease-in-out 150ms;}
 
 @media screen and (max-width: 1566px){
   .dashboard-item{
