@@ -117,7 +117,10 @@ class NavbarSticky extends Component {
                     e.preventDefault()
                     this.props.history.push('/')
                   }}>Home</Nav>
-                <Nav className="clicked p-0 m-0 text-nowrap mb-4 mb-md-0">Add Recipe</Nav>
+                <Nav className="clicked p-0 m-0 text-nowrap mb-4 mb-md-0" onClick={(e)=>{
+                    e.preventDefault()
+                    this.props.history.push('/addRecipe')
+                  }}>Add Recipe</Nav>
                 <Nav className="clicked p-0 m-0 ml-md-5 mb-4 mb-md-0" onClick={(e)=>{
                     e.preventDefault()
                     this.props.history.push('/profile')
