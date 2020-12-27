@@ -10,15 +10,27 @@ export class Profile extends Component {
         return (
             <>
             <Route path={this.props.match.path} component={Navbar} />
-            <div className="container section-profile d-flex justify-content-center flex-column align-items-center">
-                <div className="img-profile-section">
-                    <img alt="user-profile" src={UserIcon} className="img-profile"/>
-                    <img alt="pen-edit" src={Edit} className="edit-profile clicked" />
+            {localStorage.getItem('token').name ===  null ? (
+                <div className="container section-profile d-flex justify-content-center flex-column align-items-center">
+                    <div className="img-profile-section">
+                        <img alt="user-profile" src={UserIcon} className="img-profile"/>
+                        <img alt="pen-edit" src={Edit} className="edit-profile clicked" />
+                    </div>
+                    <div className="mt-4">
+                        <h2 className="text-center">loading profile ...</h2>
+                    </div>
                 </div>
-                <div className="mt-4">
-                    <h2 className="text-center">loading profile ...</h2>
+            ):(
+                <div className="container section-profile d-flex justify-content-center flex-column align-items-center">
+                    <div className="img-profile-section">
+                        <img alt="user-profile" src={UserIcon} className="img-profile"/>
+                        <img alt="pen-edit" src={Edit} className="edit-profile clicked" />
+                    </div>
+                    <div className="mt-4">
+                        <h2 className="text-center">{JSON.parse(localStorage.getItem('token')).name}</h2>
+                    </div>
                 </div>
-            </div>
+            )}
             <div className="container-fluid pl-xl-5 pr-xl-5">
                 <div className="col-md-5 col-lg-4 col-xl=3 d-flex flex-column flex-sm-row justify-content-between pl-3 pl-xl-5 pr-3 pr-xl-5">
                     <Link to="/profile/myrecipe" className="txt-profile font-weight-medium clicked text-decoration-none text-nowrap mb-3 mb-sm-0 mr-md-4 mr-lg-5 text-center">My Recipe</Link>

@@ -42,9 +42,9 @@ class ListRecipe extends Component {
                     {recipe && recipe.map(
                         ({recipe_name, id_recipe, recipe_desc, id}) => {
                             return(
-                                    <div className="col-12 col-sm-6 col-md-4 d-flex justify-content-center mb-3 mb-sm-4 mb-lg-5 p-0 px-sm-2 px-lg-3">
-                                            <div className="dashboard-item position-relative"  key={id}>
-                                                <Link onClick={() => alert(`${id_recipe}`)}>
+                                    <div className="col-12 col-sm-6 col-md-4 d-flex justify-content-center mb-3 mb-sm-4 mb-lg-5 p-0 px-sm-2 px-lg-3"  key={id_recipe}>
+                                            <div className="dashboard-item position-relative" >
+                                                <Link to={{pathname: "/recipe/" + id_recipe}} >
                                                     <div className="w-100 h-100 p-4 d-flex align-items-end clicked">
                                                         <h2 className="col-10 text-dark">{recipe_name}</h2>
                                                         <div className="position-absolute w-100 h-100" style={{zIndex:'-1',top: 0,left:0, backgroundColor:'#ffffff50'}}></div>

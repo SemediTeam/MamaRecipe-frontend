@@ -13,7 +13,7 @@ class NewRecipe extends Component {
         Axios
         .get(getUrl)
         .then(({data})=> {
-            console.log(JSON.parse(data[0].recipe_img)) 
+            //console.log(JSON.parse(data[0].recipe_img)) 
             this.setState({
                 img: JSON.parse(data[0].recipe_img),
                 newRecipe: data[0]
