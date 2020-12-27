@@ -37,8 +37,10 @@ class Login extends Component {
       }
     })
     .then(({data})=>{
+      console.log(data);
       const payload = {
         id    : data.data.id_user,
+        imgUser: data.data.user_img,
         name  : data.data.name,
         email : data.data.email,
         token : data.data.tokenId
