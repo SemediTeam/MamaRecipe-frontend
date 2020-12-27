@@ -11,6 +11,7 @@ import Search from './search';
 import { BlankPage } from '../components/utilities';
 
 import store from '../global/store';
+import AddRecipe from './addRecipe';
 
 export default function Router() {
   return (
@@ -22,6 +23,7 @@ export default function Router() {
           <Route exact path="/" component={Dashboard}/>
           <Route path="/search" component={Search}/>
           <Route exact path="/recipe/:id" component={Detail}/>
+          <Route exact path="/addRecipe" component={AddRecipe}/>
           
           restricted route
           <LoginCheck path="/auth">
@@ -30,9 +32,9 @@ export default function Router() {
           <PrivateRouter path="/profile">
             <Route component={Profile}/>
           </PrivateRouter>
-          <PrivateRouter path="/addRecipe">
+          {/* <PrivateRouter path="/addRecipe">
             <div>{'addrecipe'}</div>
-          </PrivateRouter>
+          </PrivateRouter> */}
 
           error route
           <Route exact path="/blank" component={BlankPage}/>          
