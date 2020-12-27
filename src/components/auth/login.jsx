@@ -38,8 +38,10 @@ class Login extends Component {
     })
     .then(({data})=>{
       const payload = {
+        id    : data.data.id_user,
+        name  : data.data.name,
         email : data.data.email,
-        token : data.data.auth.token
+        token : data.data.tokenId
       }
       // this.props.dispatch(authLogin())
       localStorage.setItem('token', JSON.stringify(payload))
