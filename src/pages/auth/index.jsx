@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import './auth.css';
 import { LogoAuth } from '../../assets';
 import {Login,Register,ForgotPassword,Validate} from "../../components/auth";
