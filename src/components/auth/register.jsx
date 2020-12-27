@@ -15,7 +15,6 @@ export default class Register extends Component {
       email: '',
       phone: '',
       password: '',
-      isVerified: 0,
       matchPass: '',
       errMsg: ''
     }
@@ -31,8 +30,7 @@ export default class Register extends Component {
       name : this.state.name,
       phone: this.state.phone,
       email : this.state.email,
-      password : this.state.password,
-      isVerified: this.state.isVerified
+      password : this.state.password
     })
     
     if (this.state.password !== this.state.matchPass) {

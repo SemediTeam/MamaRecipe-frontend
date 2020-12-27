@@ -17,10 +17,13 @@ export default function Router() {
     <Provider store={store}>
       <BrowserRouter>
         <Switch>
+
+          public route
           <Route exact path="/" component={Dashboard}/>
           <Route path="/search" component={Search}/>
           <Route exact path="/recipe/:id" component={Detail}/>
           
+          restricted route
           <LoginCheck path="/auth">
             <Route component={Auth}/>
           </LoginCheck>
@@ -31,6 +34,7 @@ export default function Router() {
             <div>{'addrecipe'}</div>
           </PrivateRouter>
 
+          error route
           <Route exact path="/blank" component={BlankPage}/>          
           <Route path="*" render={()=>
             <Redirect to={{ pathname: "/blank" }}/>
