@@ -31,14 +31,13 @@ class NavbarSticky extends Component {
       })
     }else{
       this._isMounted && this.setState({
-        burger: 'deactive-burger',
-        Scroll: 'top-navbar w-100'
+        burger: 'deactive-burger'
       })
     }
   }
 
   changeBackground = () => {
-    if ( window.scrollY  >= 20) {
+    if ( window.scrollY  >= 10) {
       this._isMounted && this.setState({
         Scroll: 'top-navbar active-navbar w-100'
       })
@@ -109,6 +108,7 @@ class NavbarSticky extends Component {
                 this.setState({
                   isBurger: !this.state.isBurger
                 })
+                this.changeBackground()
               }}/>
             </div>
             <Navbar.Collapse id="responsive-navbar-nav" className="pl-0 pl-md-3 pl-xl-5 pr-0 justify-content-md-between nav-small pt-5 pt-md-0 mt-5 mt-md-0 navbar-link-custom">

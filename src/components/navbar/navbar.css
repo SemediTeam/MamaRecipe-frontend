@@ -35,6 +35,9 @@
   background-color: transparent;
   transition: ease-in-out 250ms;
 }
+.navbar-link-custom{
+  font-size: larger;
+}
 @media screen and (max-width: 767px){
   .nav-small{
     background-color: transparent !important;
