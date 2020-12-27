@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Form, InputGroup } from 'react-bootstrap';
-import { Route } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import Navbar from "../../components/navbar";
 import { SearchIcon,Recipe1 } from '../../assets/index';
 import { Placeholder } from 'semantic-ui-react'
@@ -84,11 +84,15 @@ class Search extends Component {
                     <div className="col-12 col-sm-6 col-md-4 d-flex justify-content-center mb-3 mb-sm-4 mb-lg-5 p-0 px-sm-2 px-lg-3" key={id_recipe}>
                       <div className="search-item position-relative">
                         <div className="w-100 h-100 ">
-                          <div className="position-absolute p-4 d-flex flex-column justify-content-end w-100 h-100 clicked search-hover" style={{zIndex:'1',top: 0,left:0}}>
-                            <h1 className="w-100" style={{overflow:'hidden', textOverflow:'ellipsis', display:'-webkit-box', WebkitLineClamp:2, WebkitBoxOrient: 'vertical'}}>{recipe_name}</h1>
-                            <span className="w-100 font-weight-medium h4" style={{overflow:'hidden', textOverflow:'ellipsis', display:'-webkit-box', WebkitLineClamp:3, WebkitBoxOrient: 'vertical'}}>{recipe_desc}</span>
-                          </div>
-                          <img src={Recipe1} className="position-absolute w-100 h-100" alt="recipe" style={{zIndex:'-2',top: 0,left:0, objectFit:'cover', objectPosition:'center'}}/>
+                          <Link to={{
+                            pathname:`/recipe/${id_recipe}`
+                          }}>
+                            <div className="position-absolute p-4 d-flex flex-column justify-content-end w-100 h-100 clicked search-hover" style={{zIndex:'1',top: 0,left:0}}>
+                              <h1 className="w-100" style={{overflow:'hidden', textOverflow:'ellipsis', display:'-webkit-box', WebkitLineClamp:2, WebkitBoxOrient: 'vertical'}}>{recipe_name}</h1>
+                              <span className="w-100 font-weight-medium h4" style={{overflow:'hidden', textOverflow:'ellipsis', display:'-webkit-box', WebkitLineClamp:3, WebkitBoxOrient: 'vertical'}}>{recipe_desc}</span>
+                            </div>
+                            <img src={Recipe1} className="position-absolute w-100 h-100" alt="recipe" style={{zIndex:'-2',top: 0,left:0, objectFit:'cover', objectPosition:'center'}}/>
+                          </Link>
                         </div>
                       </div>
                     </div>
