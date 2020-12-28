@@ -1,7 +1,6 @@
 import Axios from 'axios';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Recipe1 } from '../../assets/index';
 
 const getUrl = 'http://localhost:4000/recipe/popular';
 
