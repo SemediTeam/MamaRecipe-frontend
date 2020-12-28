@@ -19,7 +19,7 @@ class DetailRecipe extends Component {
                 <div className="position-relative col-12 col-md-11 col-lg-10 col-xl-9 mb-5 p-0">
 
                   {
-                    false ? <img src={JSON.parse(dataRecipe.recipe_img)} alt="recipeImage" className="w-100 p-0 img-recipe-detail detail-rounded"/>
+                    isFulfilled ? <img src={JSON.parse(dataRecipe.recipe_img)[0]} alt="recipeImage" className="w-100 p-0 img-recipe-detail detail-rounded"/>
                     : <Placeholder className="w-100 p-0 img-recipe-detail detail-rounded"><Placeholder.Image/></Placeholder>}
                   
                   <div className="action-user position-absolute row w-50 d-flex justify-content-end">
