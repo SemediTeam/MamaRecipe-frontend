@@ -22,7 +22,7 @@ export default function Router() {
           public route
           <Route exact path="/" component={Dashboard}/>
           <Route path="/search" component={Search}/>
-          <Route exact path="/recipe/:id" component={Detail}/>
+          <Route path="/recipe" component={Detail}/>
           <Route exact path="/addRecipe" component={AddRecipe}/>
           
           restricted route
