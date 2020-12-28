@@ -44,7 +44,7 @@ export default class Register extends Component {
         }
       })
       .then(()=>{
-        console.log('succsess create new data');
+        // console.log('succsess create new data');
         this.props.history.push('/auth/signin');
       }).catch((e)=>{
         if (e.response.data.error === "Email already in use!") {

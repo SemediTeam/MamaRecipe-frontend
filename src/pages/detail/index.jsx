@@ -24,7 +24,7 @@ class Detail extends Component {
   }
   render() {
     const recipeId = this.props.recipe.dataRecipe.id_recipe
-    console.log(this.props.match.path);
+    // console.log(this.props.match.path);
     return (
       <>
         <Route path={this.props.match.path} component={Navbar}/>

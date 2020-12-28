@@ -37,7 +37,7 @@ class Saved extends Component {
 
   render() {
     const {bookmarks} = this.state
-    console.log(bookmarks)
+    // console.log(bookmarks)
     return (
       <>
         {bookmarks === null ? (

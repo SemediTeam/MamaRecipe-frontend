@@ -21,12 +21,12 @@ class Myrecipes extends Component {
     Axios
     .get(getUrl, config)
     .then(({data}) => {
-     console.log(data.data.map(
-       ({recipe_img}) => {
-         return JSON.parse(recipe_img)
-       }
-     ))
-     console.log(data)
+    //  console.log(data.data.map(
+    //    ({recipe_img}) => {
+    //      return JSON.parse(recipe_img)
+    //    }
+    //  ))
+    //  console.log(data)
       this.setState({
         img: data.data.map(
           ({recipe_img}) => {

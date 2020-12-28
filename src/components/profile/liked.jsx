@@ -16,11 +16,11 @@ class Liked extends Component {
     }
     getLikedRecipe = () => {
         const id =JSON.parse(localStorage.getItem('token')).id
-        console.log(id)
+        // console.log(id)
         Axios
         .get(getUrl + id, config)
         .then(({data}) => {
-          console.log(data.data)
+        //   console.log(data.data)
           this.setState({
             liked : data
           })
