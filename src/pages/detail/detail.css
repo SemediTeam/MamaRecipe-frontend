@@ -2,6 +2,8 @@
   min-height: 100vh;
 }
 .img-recipe-detail{
+  min-width: 100%;
+  min-height: 400px;
   max-height: 700px;
   object-fit: cover;
   object-position: center;

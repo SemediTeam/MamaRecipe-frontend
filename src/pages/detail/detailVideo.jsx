@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 
 export default class video extends Component {
   render() {
+    console.log('hit');
     return (
-      <div>
+      <div className="full-h">
         
       </div>
     )

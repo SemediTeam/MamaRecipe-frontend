@@ -10,14 +10,12 @@ import { connect } from 'react-redux';
 import { searchItemAction } from '../../global/actionCreators/search';
 
 class Search extends Component {
-  constructor(props){
-    super(props);
+  constructor(){
+    super();
     this.state = {
       placeholder: [1,2,3,4,5,6],
-      dataSearch: false,
-      dataValue: []
     }
-    this._mounted = false
+    // this._mounted = false
   }
 
   handleGetSearch = (params) => {
@@ -33,21 +31,11 @@ class Search extends Component {
     this.handleGetSearch()
   }
 
-  componentDidUpdate= (prevProps,prevState) => {
-    const {items} = this.props
-    if (prevState.dataSearch !== items.isFulfilled) {
-      this.setState({
-        dataSearch: items.isFulfilled
-      })
-    }
-  }
-
   render() {
     const search = this.props.location.search;
     const name = new URLSearchParams(search).get("name");
     const {items} = this.props
 
-    // console.log(`state ${this.state.dataSearch}`);
     // console.log(`props ${items.isFulfilled}`);
     return (
       <>
@@ -78,7 +66,7 @@ class Search extends Component {
             <div className="p-0 pt-4 d-flex flex-wrap">
 
               {
-              this.state.dataSearch ? 
+              items.isFulfilled ? 
                 items.dataRecipe.recipe && items.dataRecipe.recipe.map(({id_recipe,recipe_name,recipe_desc})=>{
                   return(
                     <div className="col-12 col-sm-6 col-md-4 d-flex justify-content-center mb-3 mb-sm-4 mb-lg-5 p-0 px-sm-2 px-lg-3" key={id_recipe}>
