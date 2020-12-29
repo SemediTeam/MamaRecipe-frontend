@@ -2,7 +2,7 @@ import Axios from 'axios'
 import React, { Component } from 'react'
 import { imgLoader } from '../../assets'
 
-const getUrl = 'http://localhost:4000/recipe/byuser'
+const getUrl = 'http://34.194.133.152:4000/recipe/byuser'
 const config = {
   headers: {
       'Content-type' : 'multipart/form-data', 'x-access-token' : 'Bearer ' + JSON.parse(localStorage.getItem('token')).token
