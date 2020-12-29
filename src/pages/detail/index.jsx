@@ -18,14 +18,14 @@ class Detail extends Component {
       console.log('getting items ...');
       await dispatch(singleRecipeAction(params))
       
-      if (token !== undefined) {
+      if (token !== null) {
         const config = {
           headers: {
             'x-access-token' : 'Bearer ' + JSON.parse(token).token
           }
         }
-        await dispatch(bookmarkRecipeAction(config))
-        await dispatch(likedRecipeAction(config))
+        dispatch(bookmarkRecipeAction(config))
+        dispatch(likedRecipeAction(config))
       }
       
     }else{
