@@ -6,7 +6,7 @@ import axios from 'axios';
 
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { bookmarkRecipeAction } from '../../global/actionCreators/detailRecipe';
+import { bookmarkRecipeAction,likedRecipeAction } from '../../global/actionCreators/detailRecipe';
 
 const api = axios.create({
   baseURL: process.env.REACT_APP_BASEURL
@@ -16,7 +16,8 @@ class DetailRecipe extends Component {
   constructor(){
     super()
     this.state = {
-      isBookmark : false
+      isBookmark : false,
+      isLiked : false
     }
   }
   
@@ -37,23 +38,33 @@ class DetailRecipe extends Component {
     })
   }
 
-  handlerBookmarkSelected = async (params) => {
-    const bookmarkedRecipe = []
-    console.log(params);
-    params !== 'Data not Found' ? await params.map(({id_recipe}) => {
-      return (id_recipe === Number(this.props.location.pathname.split('/')[2]) && bookmarkedRecipe.push(id_recipe))
-    }) : this.setState({isBookmark:false})
-    if (bookmarkedRecipe.length) {
-      this.setState({
-        isBookmark  : true
-      })
+  handlerLike = async (params) => {
+    const {id_recipe} = this.props.recipe.dataRecipe
+    const data = JSON.stringify({
+      id_user : JSON.parse(params).id,
+      id_recipe : id_recipe,
+    })
+    const config = {
+      headers: {
+        'Content-Type': 'application/json', 'x-access-token' : 'Bearer ' + JSON.parse(params).token
+      }
     }
+    await api.post('/likes',data,config).then(()=>{
+      this.props.dispatch(likedRecipeAction(config))
+    }).catch((e)=>{
+      console.log(e.response.status);
+    })
   }
 
   componentDidUpdate(prevProps, prevState){
-    const {dataBookmarks} = this.props.recipe
+    const {dataBookmarks,dataLiked} = this.props.recipe
     if (prevProps.recipe.dataBookmarks !== dataBookmarks) {
-      this.handlerBookmarkSelected(dataBookmarks)
+      // this.handlerBookmarkSelected(dataBookmarks)
+      console.log('hit new data bookmark');
+    }
+    if (prevProps.recipe.dataLiked !== dataLiked) {
+      // this.handlerLikeSelected(dataLiked)
+      console.log('hit new data like');
     }
   }
 
@@ -73,28 +84,43 @@ class DetailRecipe extends Component {
                     : <Placeholder className="w-100 p-0 img-recipe-detail detail-rounded"><Placeholder.Image/></Placeholder>}
                   
                   <div className="action-user position-absolute row w-50 d-flex justify-content-end">
-                    {
-                      this.state.isBookmark ? (
-                        <div className="detail-rounded p-2 p-sm-3 mr-3 bookmark-Selected">
-                          <img src={bookmarkSelected} alt="bookmark"/>
-                        </div>
-                      )
-                      :  (
-                        <div className="detail-rounded p-2 p-sm-3 mr-3 clicked bookmark-noSelected" onClick={(e) => {
-                          e.preventDefault()
-                          this.handlerBookmark(localStorage.getItem('token'))
-                        }}>
-                          <img src={bookmarkNoSelected} alt="bookmark"/>
-                        </div>
-                      ) 
-                    }
-                    
+                    {() => {
+                      if (isFulfilled) {
+                        if (this.state.isBookmark) {
+                          <div className="detail-rounded p-2 p-sm-3 mr-3 Selected">
+                            <img src={bookmarkSelected} alt="bookmark"/>
+                          </div>
+                        } else {
+                          <div className="detail-rounded p-2 p-sm-3 mr-3 clicked noSelected" onClick={(e) => {
+                            e.preventDefault()
+                            localStorage.getItem('token') && this.handlerBookmark(localStorage.getItem('token'))
+                          }}>
+                            <img src={bookmarkNoSelected} alt="bookmark"/>
+                          </div>
+                        }
+                      } else {
+                        <div className="detail-rounded clicked p-3 p-sm-4 mr-3" style={{backgroundColor: '#e0e0e0'}}></div>
+                      }
+                    }}
 
-                   
-
-                    <div className="detail-rounded p-2 p-sm-3 clicked bookmark-noSelected">
-                      {/* <img src={bookmarkNoSelected} alt="bookmark"/> */}
-                    </div>
+                    {() => {
+                      if (isFulfilled) {
+                        if (this.state.isLiked) {
+                          <div className="detail-rounded p-2 p-sm-3 Selected">
+                            <img src={bookmarkSelected} alt="bookmark"/>
+                          </div>
+                        } else {
+                          <div className="detail-rounded p-2 p-sm-3 clicked noSelected" onClick={(e) => {
+                            e.preventDefault()
+                            localStorage.getItem('token') && this.handlerLike(localStorage.getItem('token'))
+                          }}>
+                            <img src={bookmarkNoSelected} alt="bookmark"/>
+                          </div>
+                        }
+                      } else {
+                        <div className="detail-rounded clicked p-3 p-sm-4" style={{backgroundColor: '#e0e0e0'}}></div>
+                      }
+                    }}
                   </div>
                 </div>
                 <div className="mt-5 mb-5 w-100">
@@ -146,7 +172,7 @@ class DetailRecipe extends Component {
     )
   }
 }
-const mapStateToProps = ({recipe,}) => {
+const mapStateToProps = ({recipe}) => {
   return{
     recipe
   }

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getSingleRecipe,getBookmarkRecipe } from "../actionType";
+import { getSingleRecipe,getBookmarkRecipe,getLikesRecipe } from "../actionType";
 
 const api = axios.create({
   baseURL: process.env.REACT_APP_BASEURL
@@ -21,7 +21,7 @@ export const bookmarkRecipeAction = (config) => {
 
 export const likedRecipeAction = (config) => {
   return{
-    type: getBookmarkRecipe,
+    type: getLikesRecipe,
     payload: api.get('/likes',config)
   }
 }

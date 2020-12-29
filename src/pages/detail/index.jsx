@@ -8,29 +8,33 @@ import {  Route } from 'react-router-dom';
 // import { Placeholder } from 'semantic-ui-react'
 
 import { connect } from 'react-redux';
-import { singleRecipeAction, bookmarkRecipeAction } from '../../global/actionCreators/detailRecipe';
+import { singleRecipeAction, bookmarkRecipeAction, likedRecipeAction } from '../../global/actionCreators/detailRecipe';
 
 class Detail extends Component {
 
-  handleGetItem = (params) => {
+  handleGetItem = async (params,token) => {
     const {dispatch, recipe} = this.props
-    if (recipe.dataRecipe.id_recipe !== params) {
-      dispatch(singleRecipeAction(params))
+    if (recipe.dataRecipe.id_recipe !== Number(params)) {
+      console.log('getting items ...');
+      await dispatch(singleRecipeAction(params))
+      
+      if (token !== undefined) {
+        const config = {
+          headers: {
+            'x-access-token' : 'Bearer ' + JSON.parse(token).token
+          }
+        }
+        await dispatch(bookmarkRecipeAction(config))
+        await dispatch(likedRecipeAction(config))
+      }
+      
+    }else{
+      console.log('not getting same data ...')
     }
   }
 
-  handleGetBookmark = (params) => {
-    const config = {
-      headers: {
-        'x-access-token' : 'Bearer ' + JSON.parse(params).token
-      }
-  }
-    this.props.dispatch(bookmarkRecipeAction(config))
-  }
-
   componentDidMount(){
-    this.handleGetItem(this.props.location.pathname.split('/')[2])
-    this.handleGetBookmark(localStorage.getItem('token'))
+    this.handleGetItem(this.props.location.pathname.split('/')[2],localStorage.getItem('token'))
   }
   render() {
     const recipeId = this.props.recipe.dataRecipe.id_recipe

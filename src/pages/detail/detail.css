@@ -83,9 +83,9 @@
   background-color: #00000070;
   padding-bottom: 12px;
 }
-.bookmark-Selected{
+.Selected{
   background-color: #cea905;
-}.bookmark-noSelected{
+}.noSelected{
   background-color: #b4b4b4e1;
 }
 .bookmark-noSelected:hover{
