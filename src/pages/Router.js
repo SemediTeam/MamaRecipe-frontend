@@ -12,6 +12,7 @@ import { BlankPage } from '../components/utilities';
 
 import store from '../global/store';
 import AddRecipe from './addRecipe';
+import ResetPass from './resetPassword';
 
 export default function Router() {
   return (
@@ -24,6 +25,7 @@ export default function Router() {
           <Route path="/search" component={Search}/>
           <Route path="/recipe" component={Detail}/>
           <Route exact path="/addRecipe" component={AddRecipe}/>
+          <Route exact path="/resetPassword" component={ResetPass}/>
           
           restricted route
           <LoginCheck path="/auth">
