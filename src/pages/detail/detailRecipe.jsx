@@ -1,11 +1,72 @@
 import React, { Component } from 'react'
 import { Button, Form } from 'react-bootstrap';
 import { Placeholder } from 'semantic-ui-react'
+import { bookmarkNoSelected, bookmarkSelected} from '../../assets';
+import axios from 'axios';
 
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { bookmarkRecipeAction,likedRecipeAction } from '../../global/actionCreators/detailRecipe';
+
+const api = axios.create({
+  baseURL: process.env.REACT_APP_BASEURL
+});
 
 class DetailRecipe extends Component {
+  constructor(){
+    super()
+    this.state = {
+      isBookmark : false,
+      isLiked : false
+    }
+  }
+  
+  handlerBookmark = async (params) => {
+    const {id_recipe} = this.props.recipe.dataRecipe
+    const data = JSON.stringify({
+      recipe_id : id_recipe
+    })
+    const config = {
+      headers: {
+        'Content-Type': 'application/json', 'x-access-token' : 'Bearer ' + JSON.parse(params).token
+      }
+    }
+    await api.post('/bookmarks',data,config).then(()=>{
+      this.props.dispatch(bookmarkRecipeAction(config))
+    }).catch((e)=>{
+      console.log(e.response.status);
+    })
+  }
+
+  handlerLike = async (params) => {
+    const {id_recipe} = this.props.recipe.dataRecipe
+    const data = JSON.stringify({
+      id_user : JSON.parse(params).id,
+      id_recipe : id_recipe,
+    })
+    const config = {
+      headers: {
+        'Content-Type': 'application/json', 'x-access-token' : 'Bearer ' + JSON.parse(params).token
+      }
+    }
+    await api.post('/likes',data,config).then(()=>{
+      this.props.dispatch(likedRecipeAction(config))
+    }).catch((e)=>{
+      console.log(e.response.status);
+    })
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    const {dataBookmarks,dataLiked} = this.props.recipe
+    if (prevProps.recipe.dataBookmarks !== dataBookmarks) {
+      // this.handlerBookmarkSelected(dataBookmarks)
+      console.log('hit new data bookmark');
+    }
+    if (prevProps.recipe.dataLiked !== dataLiked) {
+      // this.handlerLikeSelected(dataLiked)
+      console.log('hit new data like');
+    }
+  }
 
   render() {
     const {dataRecipe,isFulfilled} = this.props.recipe
@@ -19,16 +80,47 @@ class DetailRecipe extends Component {
                 <div className="position-relative col-12 col-md-11 col-lg-10 col-xl-9 mb-5 p-0">
 
                   {
-                    false ? <img src={JSON.parse(dataRecipe.recipe_img)} alt="recipeImage" className="w-100 p-0 img-recipe-detail detail-rounded"/>
+                    isFulfilled ? <img src={JSON.parse(dataRecipe.recipe_img)[0]} alt="recipeImage" className="w-100 p-0 img-recipe-detail detail-rounded"/>
                     : <Placeholder className="w-100 p-0 img-recipe-detail detail-rounded"><Placeholder.Image/></Placeholder>}
                   
                   <div className="action-user position-absolute row w-50 d-flex justify-content-end">
-                    <div className="detail-rounded clicked p-3 p-sm-4 mr-3" style={{backgroundColor: '#e0e0e0'}}>
+                    {() => {
+                      if (isFulfilled) {
+                        if (this.state.isBookmark) {
+                          <div className="detail-rounded p-2 p-sm-3 mr-3 Selected">
+                            <img src={bookmarkSelected} alt="bookmark"/>
+                          </div>
+                        } else {
+                          <div className="detail-rounded p-2 p-sm-3 mr-3 clicked noSelected" onClick={(e) => {
+                            e.preventDefault()
+                            localStorage.getItem('token') && this.handlerBookmark(localStorage.getItem('token'))
+                          }}>
+                            <img src={bookmarkNoSelected} alt="bookmark"/>
+                          </div>
+                        }
+                      } else {
+                        <div className="detail-rounded clicked p-3 p-sm-4 mr-3" style={{backgroundColor: '#e0e0e0'}}></div>
+                      }
+                    }}
 
-                    </div>
-                    <div className="detail-rounded clicked p-3 p-sm-4" style={{backgroundColor: '#e0e0e0'}}>
-
-                    </div>
+                    {() => {
+                      if (isFulfilled) {
+                        if (this.state.isLiked) {
+                          <div className="detail-rounded p-2 p-sm-3 Selected">
+                            <img src={bookmarkSelected} alt="bookmark"/>
+                          </div>
+                        } else {
+                          <div className="detail-rounded p-2 p-sm-3 clicked noSelected" onClick={(e) => {
+                            e.preventDefault()
+                            localStorage.getItem('token') && this.handlerLike(localStorage.getItem('token'))
+                          }}>
+                            <img src={bookmarkNoSelected} alt="bookmark"/>
+                          </div>
+                        }
+                      } else {
+                        <div className="detail-rounded clicked p-3 p-sm-4" style={{backgroundColor: '#e0e0e0'}}></div>
+                      }
+                    }}
                   </div>
                 </div>
                 <div className="mt-5 mb-5 w-100">

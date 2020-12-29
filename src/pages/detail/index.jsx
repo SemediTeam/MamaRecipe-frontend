@@ -8,23 +8,37 @@ import {  Route } from 'react-router-dom';
 // import { Placeholder } from 'semantic-ui-react'
 
 import { connect } from 'react-redux';
-import { singleRecipeAction } from '../../global/actionCreators/detailRecipe';
+import { singleRecipeAction, bookmarkRecipeAction, likedRecipeAction } from '../../global/actionCreators/detailRecipe';
 
 class Detail extends Component {
 
-  handleGetItem = (params) => {
+  handleGetItem = async (params,token) => {
     const {dispatch, recipe} = this.props
-    if (recipe.dataRecipe.id_recipe !== params) {
-      dispatch(singleRecipeAction(params))
+    if (recipe.dataRecipe.id_recipe !== Number(params)) {
+      console.log('getting items ...');
+      await dispatch(singleRecipeAction(params))
+      
+      if (token !== undefined) {
+        const config = {
+          headers: {
+            'x-access-token' : 'Bearer ' + JSON.parse(token).token
+          }
+        }
+        await dispatch(bookmarkRecipeAction(config))
+        await dispatch(likedRecipeAction(config))
+      }
+      
+    }else{
+      console.log('not getting same data ...')
     }
   }
 
   componentDidMount(){
-    this.handleGetItem(this.props.location.pathname.split('/')[2])
+    this.handleGetItem(this.props.location.pathname.split('/')[2],localStorage.getItem('token'))
   }
   render() {
     const recipeId = this.props.recipe.dataRecipe.id_recipe
-    console.log(this.props.match.path);
+    // console.log(this.props.match.path);
     return (
       <>
         <Route path={this.props.match.path} component={Navbar}/>

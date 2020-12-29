@@ -57,14 +57,14 @@ class Myrecipes extends Component {
 
   componentDidUpdate = (prevProps, prevState) => {
     if(prevState.recipe !== this.state.recipe){
-        console.log('delete gagal')
-    }else{
-        this.getMyRecipe();
+      this.forceUpdate();
+      console.log(prevState.recipe, this.state.recipe)
     }
-}
+  }
 
   render() {
     const {myRecipe, img} = this.state
+
     return (
       <>
         {myRecipe === null ? (
@@ -100,7 +100,7 @@ class Myrecipes extends Component {
                           <Link  onClick={() => {this.deleteProduct(id_recipe)}}  className="text-light" style={{fontSize:'30px'}}>Delete Recipe</Link>
                         </div>
                       )}
-                  </div>
+                 </div>
               </div>
               )
             }
