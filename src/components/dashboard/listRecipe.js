@@ -27,7 +27,7 @@ class ListRecipe extends Component {
     }
     render() {
         const {recipe} = this.state
-        //console.log(recipe[0])
+        console.log(recipe)
         return (
             <>
                 <div className="w-100 full-h d-flex flex-column pl-0 pl-xl-5 pr-0 pr-xl-5">
