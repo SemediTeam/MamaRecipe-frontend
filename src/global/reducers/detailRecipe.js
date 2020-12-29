@@ -4,7 +4,8 @@ import {
   getLikesRecipe,
   fulfilled,
   pending,
-  rejected
+  rejected,
+  getCommentRecipe
  } from '../actionType';
 
 const defaultState = {
@@ -62,6 +63,28 @@ const singleRecipeReducer = (prevState = defaultState, action) => {
         isPending: false,
         isFulfilled: true,
         dataBookmarks: action.payload.data.data,
+      };
+
+    case getCommentRecipe + pending:
+      return {
+        ...prevState,
+        isPending: true,
+        isRejected: false,
+        isFulfilled: false,
+      };
+    case getCommentRecipe + rejected:
+      return {
+        ...prevState,
+        isPending: false,
+        isRejected: true,
+        err: action.payload,
+      };
+    case getCommentRecipe + fulfilled:
+      return {
+        ...prevState,
+        isPending: false,
+        isFulfilled: true,
+        dataComment: action.payload.data.data,
       };
 
     case getLikesRecipe + pending:

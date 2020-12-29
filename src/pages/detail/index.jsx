@@ -8,7 +8,7 @@ import {  Route } from 'react-router-dom';
 // import { Placeholder } from 'semantic-ui-react'
 
 import { connect } from 'react-redux';
-import { singleRecipeAction, bookmarkRecipeAction, likedRecipeAction } from '../../global/actionCreators/detailRecipe';
+import { singleRecipeAction, bookmarkRecipeAction, likedRecipeAction, commentRecipeAction } from '../../global/actionCreators/detailRecipe';
 
 class Detail extends Component {
 
@@ -17,7 +17,6 @@ class Detail extends Component {
     if (recipe.dataRecipe.id_recipe !== Number(params)) {
       console.log('getting items ...');
       await dispatch(singleRecipeAction(params))
-      
       if (token !== null) {
         const config = {
           headers: {
@@ -26,6 +25,7 @@ class Detail extends Component {
         }
         dispatch(bookmarkRecipeAction(config))
         dispatch(likedRecipeAction(config))
+        dispatch(commentRecipeAction(params))
       }
       
     }else{
