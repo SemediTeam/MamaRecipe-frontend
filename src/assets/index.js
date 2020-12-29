@@ -18,6 +18,7 @@ import SearchIcon from './icon/SearchIcon.svg'
 import Edit from './icon/edit.png'
 import PlayButton from './icon/trianglePlayButton.svg';
 import PauseButton from './icon/squarePauseButton.png';
+import { bookmarkNoSelected,bookmarkSelected } from './icon/bookmark';
 
 //loader
 import imgLoader from "./image/loader_main.gif";
@@ -25,5 +26,5 @@ import imgLoader from "./image/loader_main.gif";
 
 
 export {ImgDashboard, Recipe1, Recipe2, Recipe3 ,Recipe4 ,Recipe5, Recipe6, Popular, New, Image1, Image2}
-export {UserIcon, LogoAuth, SearchIcon, Edit, PlayButton, PauseButton}
+export {UserIcon, LogoAuth, SearchIcon, Edit, PlayButton, PauseButton, bookmarkSelected, bookmarkNoSelected}
 export {imgLoader}

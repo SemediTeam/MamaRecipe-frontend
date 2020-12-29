@@ -8,7 +8,7 @@ import {  Route } from 'react-router-dom';
 // import { Placeholder } from 'semantic-ui-react'
 
 import { connect } from 'react-redux';
-import { singleRecipeAction } from '../../global/actionCreators/detailRecipe';
+import { singleRecipeAction, bookmarkRecipeAction } from '../../global/actionCreators/detailRecipe';
 
 class Detail extends Component {
 
@@ -19,8 +19,18 @@ class Detail extends Component {
     }
   }
 
+  handleGetBookmark = (params) => {
+    const config = {
+      headers: {
+        'x-access-token' : 'Bearer ' + JSON.parse(params).token
+      }
+  }
+    this.props.dispatch(bookmarkRecipeAction(config))
+  }
+
   componentDidMount(){
     this.handleGetItem(this.props.location.pathname.split('/')[2])
+    this.handleGetBookmark(localStorage.getItem('token'))
   }
   render() {
     const recipeId = this.props.recipe.dataRecipe.id_recipe

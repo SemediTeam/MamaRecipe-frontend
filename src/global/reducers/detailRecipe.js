@@ -1,5 +1,6 @@
 import { 
   getSingleRecipe,
+  getBookmarkRecipe,
   fulfilled,
   pending,
   rejected
@@ -39,6 +40,29 @@ const singleRecipeReducer = (prevState = defaultState, action) => {
         isFulfilled: true,
         dataRecipe: action.payload.data.data,
       };
+    
+    case getBookmarkRecipe + pending:
+      return {
+        ...prevState,
+        isPending: true,
+        isRejected: false,
+        isFulfilled: false,
+      };
+    case getBookmarkRecipe + rejected:
+      return {
+        ...prevState,
+        isPending: false,
+        isRejected: true,
+        err: action.payload,
+      };
+    case getBookmarkRecipe + fulfilled:
+      return {
+        ...prevState,
+        isPending: false,
+        isFulfilled: true,
+        dataBookmarks: action.payload.data.data,
+      };
+
     default:
       return {
         ...prevState,
