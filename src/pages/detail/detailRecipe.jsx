@@ -46,9 +46,24 @@ class DetailRecipe extends Component {
       this.handlerBookmarkSelected(value)
     }
   }
-  // handlerDeleteBookmark = async (params) => {
-  //   await api.delete(`/bookmarks`)
-  // }
+
+  handlerDeleteBookmark = async (params,value) => {
+    let isFound = false
+    const urlRecipe = Number(this.props.location.pathname.split('/')[2])
+    await value !== undefined && value !== 'Data not Found' && await value.map(({id_recipe,id}) => 
+      id_recipe === urlRecipe && (isFound = id)
+    )
+    const config = {
+      headers: {
+        'Content-Type': 'application/json', 'x-access-token' : 'Bearer ' + JSON.parse(params).token
+      }
+    }
+    await api.delete(`/bookmarks/${isFound}`,config).then(()=>{
+      this.props.dispatch(bookmarkRecipeAction(config))
+    }).catch((e)=>{
+      console.log(e.response.status);
+    })
+  }
 
   handlerBookmarkSelected = async (params) => {
     let isFound = false
@@ -86,6 +101,24 @@ class DetailRecipe extends Component {
     }else{
       this.handlerLikeSelected(value)
     }
+  }
+
+  handlerDeleteLike = async (params,value) => {
+    let isFound = false
+    const urlRecipe = Number(this.props.location.pathname.split('/')[2])
+    await value !== undefined && value !== 'Data not Found' && await value.map(({id_recipe,id}) => 
+      id_recipe === urlRecipe && (isFound = id)
+    )
+    const config = {
+      headers: {
+        'Content-Type': 'application/json', 'x-access-token' : 'Bearer ' + JSON.parse(params).token
+      }
+    }
+    await api.delete(`/likes/${isFound}`,config).then(()=>{
+      this.props.dispatch(likedRecipeAction(config))
+    }).catch((e)=>{
+      console.log(e.response.status);
+    })
   }
 
   handlerLikeSelected = async (params) => {
@@ -128,7 +161,10 @@ class DetailRecipe extends Component {
                     {
                       isFulfilled || isRejected ?
                         (this.state.isBookmark ?
-                          <div className="detail-rounded p-3 mr-3 Selected">
+                          <div className="detail-rounded p-3 mr-3 clicked Selected" onClick={(e) => {
+                            e.preventDefault()
+                            localStorage.getItem('token') !== null && this.handlerDeleteBookmark(localStorage.getItem('token'),dataBookmarks)
+                          }}>
                             <img src={bookmarkSelected} alt="bookmark"/>
                           </div>
                         :
@@ -146,15 +182,18 @@ class DetailRecipe extends Component {
                     {
                       isFulfilled || isRejected ?
                         (this.state.isLiked ?
-                          <div className="detail-rounded p-2 Selected">
-                            <img src={likeSelected} alt="bookmark"/>
+                          <div className="detail-rounded p-2 clicked Selected" onClick={(e) => {
+                            e.preventDefault()
+                            localStorage.getItem('token') !== null && this.handlerDeleteLike(localStorage.getItem('token'),dataLiked)
+                          }}>
+                            <img src={likeSelected} alt="like"/>
                           </div>
                         :
                           <div className="detail-rounded p-2 clicked noSelected" onClick={(e) => {
                             e.preventDefault()
                             localStorage.getItem('token') !== null && this.handlerLike(localStorage.getItem('token'),dataLiked)
                           }}>
-                            <img src={likeNoSelected} alt="bookmark"/>
+                            <img src={likeNoSelected} alt="like"/>
                           </div>
                         )
                       :
