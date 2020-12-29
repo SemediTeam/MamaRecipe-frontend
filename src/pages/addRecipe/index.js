@@ -10,8 +10,8 @@ const baseUrl = 'http://localhost:4000/recipe'
 class AddRecipe extends Component {
 
     state = {
-        images:[],
-        videos :[]
+        images : [],
+        videos : []
     }
     handlerImage = (e) => {
         this.setState({
@@ -49,6 +49,7 @@ class AddRecipe extends Component {
         Axios.post(baseUrl, x, config)
         .then(({data}) => {
             console.log(data)
+            this.props.history.push('/')
         })
         .catch((err) => {
             console.log(err)
