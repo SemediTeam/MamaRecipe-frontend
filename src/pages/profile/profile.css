@@ -44,7 +44,7 @@
     border-radius: 15px;
     background-color: #E7E7E7;
 }
-input[type="file"] {
+.input-profile{
     position: absolute;
     z-index: -1;
     top: 10px;

@@ -57,8 +57,7 @@ class Myrecipes extends Component {
 
   componentDidUpdate = (prevProps, prevState) => {
     if(prevState.recipe !== this.state.recipe){
-      this.forceUpdate();
-      console.log(prevState.recipe, this.state.recipe)
+      this.getMyRecipe();
     }
   }
 
@@ -96,7 +95,7 @@ class Myrecipes extends Component {
                       ) : (
                         <div className="position-absolute d-flex flex-column justify-content-center" style={{zIndex:2, bottom:'35px', left:'35px',}}>
                           <Link to={{pathname: "/recipe/" + id_recipe}} className="text-light mb-2" style={{fontSize:'30px'}}>See Detail</Link>
-                          <Link className="text-light mb-2" style={{fontSize:'30px'}}>Edit Recipe</Link>
+                          <Link to={{pathname: `/editRecipe/${id_recipe}`}} className="text-light mb-2" style={{fontSize:'30px'}}>Edit Recipe</Link>
                           <Link  onClick={() => {this.deleteProduct(id_recipe)}}  className="text-light" style={{fontSize:'30px'}}>Delete Recipe</Link>
                         </div>
                       )}

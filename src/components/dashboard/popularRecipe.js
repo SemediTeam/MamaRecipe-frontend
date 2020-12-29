@@ -65,7 +65,7 @@ export class PopularRecipe extends Component {
                     <p className="mt-4 pr-5 dashboard-header-text font-weight-medium" style={{overflow:'hidden', textOverflow:'ellipsis', display:'-webkit-box', WebkitLineClamp:3, WebkitBoxOrient: 'vertical'}}>
                     {popRecipe.recipe_desc}
                     </p>
-                    <Link onClick={() => {alert('hai')}}>
+                    <Link to={{pathname: "/recipe/" + popRecipe.id_recipe}}>
                         <div className="btn btn-warning btn-main clicked px-4 py-2 mt-4">
                             <span className="font-weight-medium text-dark">Learn More</span>
                         </div>

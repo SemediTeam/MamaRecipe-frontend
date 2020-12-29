@@ -99,7 +99,7 @@ export class Profile extends Component {
                             <form className="w-100">
                                 <div className="button-wrap">
                                     <label className="button" for="upload">Change Photo</label>
-                                    <input className="inpt-update-user" id="upload" type="file" onChange={(e) => {this.handleUpload(e)}}/>
+                                    <input className="inpt-update-user input-profile" id="upload" type="file" onChange={(e) => {this.handleUpload(e)}}/>
                                 </div>
                             </form>
                             <div className="w-100 d-flex justify-content-center"> 
