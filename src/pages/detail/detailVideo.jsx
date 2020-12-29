@@ -7,6 +7,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import screenfull from 'screenfull';
 
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 function ValueLabelComponent(props) {
   const { children, open, value } = props;
@@ -120,18 +121,22 @@ function DetailVideo(props) {
       setButtonChange(PlayButton)
     }
   }
-  // console.log(onPlay);
-  const video = ["http://localhost:4000/videos/video-1609140525439.mp4 ","http://localhost:4000/videos/video-1609140525760.mp4 ","http://localhost:4000/videos/video-1609140525839.mkv "]
+  const {dataRecipe} = props.recipe
+  const indexvideo = props.location.pathname.split('/')[3]
+  const listVideo = []
+  dataRecipe.recipe_video && JSON.parse(dataRecipe.recipe_video).map((value,index)=>
+    index !== Number(indexvideo) - 1 && listVideo.push(index)
+  )
   return (
     <div className="position-relative container-fluid pt-0 px-0 px-md-3 px-xl-5">
       <div className="w-100 full-h d-flex justify-content-center pt-5 px-0 px-md-3 px-xl-5">
-        <div className="w-100 h-100 d-flex flex-column flex-md-row pt-md-5 mt-5">
+        <div className="w-100 h-100 d-flex flex-column flex-lg-row pt-md-5 mt-5">
           <div className="col-12 col-lg-8 px-0">
             <div className="w-100">
               <div ref={playerContainerRef} className="detail-video-player">
                 <ReactPlayer
                   ref={playerRef}
-                  url={video[2]} 
+                  url={JSON.parse(dataRecipe.recipe_video)[Number(indexvideo) - 1]}
                   playing={isPlay}
                   className={'detail-video-player'}
                   width={'100%'}
@@ -155,7 +160,7 @@ function DetailVideo(props) {
                 }}
                 onClick={(e)=>{
                   e.preventDefault()
-                  showButton === 'none' && setShowButton('unset')
+                  showButton === 'none' && setShowButton('unset'); setOnPlay('#00000070');
                 }}>
                   <div className="w-100 p-5"></div>
                   <div className="d-flex justify-content-center">
@@ -185,8 +190,36 @@ function DetailVideo(props) {
             </div>
           </div>
 
-          <div className="col-12 col-lg-4 pr-md-0">
-
+          <div className="col-12 col-lg-4 pt-5 px-md-0 pt-lg-0 pl-lg-3 pr-lg-0 ">
+            <h1 className="w-100 text-center">Other Step Video</h1>
+            <div className="w-100 p-0 d-flex flex-row flex-wrap flex-lg-column pt-4 pt-lg-0">
+              
+              {
+                listVideo && listVideo.map((value,index)=> {
+                return (
+                  <div className="col-12 col-sm-6 col-md-4 col-lg-12 pb-2 pb-lg-4 px-2 pl-lg-4 pr-lg-0">
+                    <Link to={{pathname:`/recipe/${dataRecipe.id_recipe}/${value + 1}`}} className="w-100">
+                      <div className="detail-other-video clicked">
+                        <ReactPlayer key={index}
+                          url={JSON.parse(dataRecipe.recipe_video)[value]}
+                          playing={false}
+                          className={'detail-other-video'}
+                          width={'100%'}
+                          height={'100%'}
+                        />
+                         <div className="other-video w-100 h-100">
+                           <div className="container-fluid d-flex align-items-end h-100">
+                            <h2>{`${props.recipe.dataRecipe.recipe_name} - [Step ${value + 1}]`}</h2>
+                           </div>
+                         </div>
+                      </div>
+                    </Link>
+                  </div>
+                  )
+                })
+              }
+              
+            </div>
           </div>
         </div>
       </div>
