@@ -36,7 +36,7 @@ class ResetPassword extends Component {
      await Axios.patch(url, data)
       .then(() => {
         //this.props.history.push('/profile')
-        alert('data masok bosku')
+        // alert('data masok bosku')
         this.props.history.push('/profile')
       })
       .catch((err) => {

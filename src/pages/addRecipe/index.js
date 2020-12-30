@@ -65,19 +65,19 @@ class AddRecipe extends Component {
                 <div className='container d-flex justify-content-center main-add-recipe'>
                     <form onSubmit={this.handleUpload}>
                         <div className="inpt-img d-flex justify-content-center align-items-center">
-                            <input placeholder="upload Image" type="file" name="images"  onChange={(e) => {this.handlerImage(e)}} multiple />
+                            <input placeholder="upload Image" type="file" name="images"  onChange={(e) => {this.handlerImage(e)}} multiple required />
                         </div>
                         <div className="inpt-title d-flex justify-content-center pl-5">
-                            <input className="add-recipe-input" placeholder="Tittle" name="recipe_name" onChange={(e) => {this.recipe_name = e.target.value}}  />
+                            <input className="add-recipe-input" placeholder="Tittle" name="recipe_name" onChange={(e) => {this.recipe_name = e.target.value}} required  />
                         </div>
                         <div className="inpt-desc d-flex justify-content-center pl-5">
-                            <input className="add-recipe-input" placeholder="Description" name="recipe_desc"  onChange={(e) => {this.recipe_desc = e.target.value}} />
+                            <input className="add-recipe-input" placeholder="Description" name="recipe_desc"  onChange={(e) => {this.recipe_desc = e.target.value}} required/>
                         </div>
                         <div className="inpt-ingredients d-flex justify-content-center p-5">
-                            <textarea className="add-recipe-input" placeholder="Ingredients" name="recipe_ingredients" onChange={(e) => {this.recipe_ingredients = e.target.value}} />
+                            <textarea className="add-recipe-input" placeholder="Ingredients" name="recipe_ingredients" onChange={(e) => {this.recipe_ingredients = e.target.value}}  required/>
                         </div>
                         <div className="inpt-video d-flex justify-content-center align-items-center pl-5">
-                            <input placeholder="Video" type="file" name="videos" onChange={(e) => {this.handlerFile(e)}} multiple/>
+                            <input placeholder="Video" type="file" name="videos" onChange={(e) => {this.handlerFile(e)}} multiple required />
                         </div>
                         <div className="d-flex justify-content-center align-items-center pl-5">
                             <Button className="button-add-recipe" variant="warning" type="submit">Post</Button>
