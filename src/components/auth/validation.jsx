@@ -32,18 +32,19 @@ export default class Validate extends Component {
       }
     })
     .then( async ({data})=>{
-      localStorage.setItem('otp', JSON.stringify(data.data[0].otp))
-      console.log(data.data[0].otp);
+      await localStorage.setItem('otp', JSON.stringify(data.data[0].otp))
       this.setState({
         errMsg : ''
       })
-      this.props.history.push('/auth/resetpassword')
     }).catch((e)=>{
-      if (e.response.data.error === 'Wrong OTP') {
-        this.setState({
-          errMsg : 'wrong code'
-        })
-      }})
+    if (e.response.data.error === 'Wrong OTP') {
+      this.setState({
+        errMsg : 'wrong code'
+      })
+    }})
+    setInterval(() => {
+      this.props.history.push('/auth/resetPassword')
+    }, 1500);
     }
   render() {
     return (
