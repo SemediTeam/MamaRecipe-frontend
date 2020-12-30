@@ -6,16 +6,26 @@
 ## Contents
 
 - [Description](#description)
-- [Features](#features)
-- [Requirements](#requirements-for-development)
-- [Installation](#installation-for-development)
 - [Screenshoots](#screenshoots)
+- [Features](#features)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [ENV](#ENV)
+- [USAGE](#Usage)
 - [Demo Mama Recipe](#demo-mama-recipe)
 - [Related Project](#related-project)
 
 ## Description
 
 **Mama Recipe** is a web-like wikipedia but about foods. You can search recipe foods here, or add new recipe here.
+
+## Screenshoots
+
+<div align="center">
+    <img width="100%" src="https://cdn.discordapp.com/attachments/793137172181680148/793682337497088020/unknown.png">
+    <img width="100%" src="https://cdn.discordapp.com/attachments/793137172181680148/793683276937429052/unknown.png">
+    <img width="100%" src="https://cdn.discordapp.com/attachments/793137172181680148/793687168656474132/unknown.png">
+</div>
 
 ## Features
 
@@ -47,7 +57,7 @@
    ```
    This will install the dependencies inside `node_modules`
    
-### ENV configuration
+### ENV
 
 Please create and make the changes in the .env file.
 
@@ -73,14 +83,6 @@ Runs the app in the development mode.<br>
 Open [http://localhost:3000/](http://localhost:3000/) to view it in the browser.
 
 If you want to build, type `npm run build`.
-
-## Screenshoots
-
-<div align="center">
-    <img width="100%" src="https://cdn.discordapp.com/attachments/793137172181680148/793682337497088020/unknown.png">
-    <img width="100%" src="https://cdn.discordapp.com/attachments/793137172181680148/793683276937429052/unknown.png">
-    <img width="100%" src="https://cdn.discordapp.com/attachments/793137172181680148/793687168656474132/unknown.png">
-</div>
 
 ## Demo Mama Recipe
 
