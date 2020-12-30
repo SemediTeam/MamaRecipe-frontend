@@ -18,7 +18,8 @@ class NavbarSticky extends Component {
     this.state = {
       Scroll: 'top-navbar w-100',
       isBurger: false,
-      burger: ''
+      burger: '',
+      imgUser : JSON.parse(localStorage.getItem('token')) !== null && JSON.parse(localStorage.getItem('token')).imgUser
     }
     this._isMounted = false;
   }
@@ -97,6 +98,7 @@ class NavbarSticky extends Component {
   }
 
   render() {
+    const {imgUser} = this.state
     window.addEventListener('scroll', this.changeBackground)
     return (
       <>
@@ -128,7 +130,7 @@ class NavbarSticky extends Component {
               </Nav>
               <Nav>
                 <Navbar.Brand className="col-12 d-flex d-md-none align-items-center justify-content-center text-decoration-none font-weight-medium m-0 p-0">
-                  <img src={UserIcon} alt="user" className="rounded-circle navbar-user-icon clicked" onClick={(e)=>{e.preventDefault(); this.props.history.push('/profile')}}/>
+                  <img src={imgUser !== null ? imgUser : UserIcon} alt="user" className="rounded-circle navbar-user-icon clicked" onClick={(e)=>{e.preventDefault(); this.props.history.push('/profile')}}/>
                   <div className="d-flex flex-row flex-nowrap pl-4 pr-0 pr-md-1 pr-xl-0">
                     {this.conditionalAuth()}
                   </div>
