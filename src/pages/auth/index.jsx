@@ -26,7 +26,7 @@ export default class Auth extends Component {
                 <Route exact path={`${this.props.match.path}/signup`} component={Register} />
                 <Route exact path={`${this.props.match.path}/forgotpassword`} component={ForgotPassword} />
                 <Route exact path={`${this.props.match.path}/validation`} component={Validate} />
-                <OtpCheck path="/auth/resetpassword">
+                <OtpCheck path={`${this.props.match.path}/resetPassword`}>
                   <Route component={ResetPassword}/>
                 </OtpCheck>
                 <Route path="*" render={()=>
