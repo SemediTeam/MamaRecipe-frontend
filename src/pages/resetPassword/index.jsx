@@ -10,7 +10,7 @@ export default class ResetPass extends Component {
       <div className="container-fluid">
         <div className="row">
           <div className="position-relative d-none d-md-block col-md-4 col-lg-6 p-0" style={{backgroundColor : 'yellow'}}>
-            <img ssrc={authImage} alt="background" style={{objectFit: 'cover',objectPosition: 'center', height:'100vh'}} className="w-100"/>
+            <img src={authImage} alt="background" style={{objectFit: 'cover',objectPosition: 'center', height:'100vh'}} className="w-100"/>
             
             <div className="mask h-100 w-100 d-flex justify-content-center align-items-center">
               <img src={LogoAuth} alt="logo"/>

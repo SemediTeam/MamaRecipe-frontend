@@ -99,6 +99,7 @@ class NavbarSticky extends Component {
 
   render() {
     const {imgUser} = this.state
+    console.log(imgUser);
     window.addEventListener('scroll', this.changeBackground)
     return (
       <>
