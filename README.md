@@ -84,7 +84,7 @@ If you want to build, type `npm run build`.
 
 This is Mama Recipe Web build version, let's try it.
 
-[http://mamarecipe.site:3000/](http://mamarecipe.site)
+[http://mamarecipe.site](http://mamarecipe.site:3000/)
 
 ## Related Project
 
