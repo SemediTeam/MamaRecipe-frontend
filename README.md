@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# Mama Recipe
+<div align="center">
+    <img width="250" src="./public/favicon.ico">
+</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Contents
 
-## Available Scripts
+- [Description](#description)
+- [Features](#features)
+- [Requirements](#requirements-for-development)
+- [Installation](#installation-for-development)
+- [Screenshoots](#screenshoots)
+- [Demo Mama Recipe](#demo-mama-recipe)
+- [Related Project](#related-project)
 
-In the project directory, you can run: this
+## Description
 
-### `yarn start`
+**Mama Recipe** is a web-like wikipedia but about foods. You can search recipe foods here, or add new recipe here.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Search Recipe
+- Add recipe
+- Edit Recipe
+- Bookmarks Recipe
+- Like Recipe
+- Comment Recipe
+- Edit Profile
+- etc
 
-### `yarn test`
+## Requirements for Development
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [`Node Js`](https://nodejs.org/en/)
+- [`npm`](https://www.npmjs.com/get-npm)
+- [`ReactJs`](https://reactjs.org/)
+- [`Mama REST API`](https://github.com/SemediTeam/recipedia-backend.git)
 
-### `yarn build`
+## Installation for Development
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Open your terminal or command prompt
+2. Type `git clone https://github.com/SemediTeam/recipedia-frontend.git`
+3. Open the folder and type `npm install` for install dependencies
+4. Create file **_.env_** in root directory with the following contents :
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+REACT_APP_BASEURL = "http://host_backend:port_backend"
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Example :
 
-### `yarn eject`
+- http://host_backend:port_backend is http://localhost:4000
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+so, you can write in .env file like this :
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+REACT_APP_BASEURL = "http://localhost:8000"
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+5. Before run this, you must installation backend and then run backend
+6. Type `npm start` in terminal for running this project.
+7. If you want to build, type `npm run build`.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Screenshoots
 
-## Learn More
+<div align="center">
+    <img width="100%" src="https://cdn.discordapp.com/attachments/793137172181680148/793682337497088020/unknown.png">
+    <img width="100%" src="https://cdn.discordapp.com/attachments/793137172181680148/793683276937429052/unknown.png">
+    <img width="100%" src="https://cdn.discordapp.com/attachments/793137172181680148/793687168656474132/unknown.png">
+</div>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Demo Mama Recipe
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This is Mama Recipe Web build version, let's try it.
 
-### Code Splitting
+<a href="http://mamarecipe.site:3000/">http://mamarecipe.site</a>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Related Project
 
-### Analyzing the Bundle Size
+RESTful API for this web application, clone this for development Mama Recipe.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<a href="https://github.com/SemediTeam/recipedia-backend.git">REST API</a>
