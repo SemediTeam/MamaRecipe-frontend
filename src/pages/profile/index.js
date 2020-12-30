@@ -86,7 +86,7 @@ export class Profile extends Component {
             ):(
                 <div className="container section-profile d-flex justify-content-center flex-column align-items-center">
                     <div className="img-profile-section">
-                        <img alt="user-profile" src={profile.user_img} className="img-profile"/>
+                        <img alt="user-profile" src={profile.user_img ? profile.user_img : UserIcon} className="img-profile"/>
                         <img alt="pen-edit" src={Edit} className="edit-profile clicked" onClick={() => {this.setState({
                             isHidden : !this.state.isHidden
                         })}} />

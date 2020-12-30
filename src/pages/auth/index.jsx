@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import './auth.css';
 import { authImage, LogoAuth } from '../../assets';
-import {Login,Register,ForgotPassword,Validate} from "../../components/auth";
+import {Login,Register,ForgotPassword,Validate,ResetPassword} from "../../components/auth";
 import { Route, Switch, Redirect } from 'react-router-dom';
+import { OtpCheck } from '../../components/utilities';
 
 export default class Auth extends Component {
   render() {
@@ -25,6 +26,9 @@ export default class Auth extends Component {
                 <Route exact path={`${this.props.match.path}/signup`} component={Register} />
                 <Route exact path={`${this.props.match.path}/forgotpassword`} component={ForgotPassword} />
                 <Route exact path={`${this.props.match.path}/validation`} component={Validate} />
+                <OtpCheck path="/auth/resetpassword">
+                  <Route component={ResetPassword}/>
+                </OtpCheck>
                 <Route path="*" render={()=>
                   <Redirect to={{ pathname: "/blank" }}/>
                 }/>

@@ -51,6 +51,9 @@ export default class Register extends Component {
           this.setState({
             errMsg : 'Email is already registred'
           })
+        } else if (e.response.data.error.code === "EAUTH") {
+          console.log('its okay data success created')
+          this.props.history.push('/auth/signin')
         } else {
           this.setState({
             errMsg : 'Something went wrong'

@@ -25,9 +25,6 @@ export default function Router() {
           <Route exact path="/" component={Dashboard}/>
           <Route path="/search" component={Search}/>
           <Route path="/recipe" component={Detail}/>
-          <Route exact path="/addRecipe" component={AddRecipe}/>
-          <Route exact path="/resetPassword" component={ResetPass}/>
-          <Route exact path="/editRecipe/:id" component={EditRecipe}/>
         
           restricted route
           <LoginCheck path="/auth">
@@ -36,9 +33,15 @@ export default function Router() {
           <PrivateRouter path="/profile">
             <Route component={Profile}/>
           </PrivateRouter>
-          {/* <PrivateRouter path="/addRecipe">
-            <div>{'addrecipe'}</div>
-          </PrivateRouter> */}
+          <PrivateRouter path="/resetPassword">
+            <Route component={ResetPass}/>
+          </PrivateRouter>
+          <PrivateRouter path="/addRecipe">
+            <Route component={AddRecipe}/>
+          </PrivateRouter>
+          <PrivateRouter path="/editRecipe/:id">
+            <Route component={EditRecipe}/>
+          </PrivateRouter>          
 
           error route
           <Route exact path="/blank" component={BlankPage}/>          
