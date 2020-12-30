@@ -99,6 +99,7 @@ class DetailRecipe extends Component {
         this.props.dispatch(likedRecipeAction(config))
       }).catch((e)=>{
         console.log(e.response.status);
+        this.props.dispatch(likedRecipeAction(config))
       })
     }else{
       this.handlerLikeSelected(value)
