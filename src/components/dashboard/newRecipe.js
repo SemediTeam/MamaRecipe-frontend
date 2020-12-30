@@ -1,5 +1,6 @@
 import Axios from 'axios';
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 const getUrl = 'http://localhost:4000/recipe/new';
 
@@ -63,9 +64,11 @@ class NewRecipe extends Component {
                         <p className="mt-4 pr-5 dashboard-header-text font-weight-medium" style={{overflow:'hidden', textOverflow:'ellipsis', display:'-webkit-box', WebkitLineClamp:3, WebkitBoxOrient: 'vertical'}}>
                         {newRecipe.recipe_desc}
                         </p>
-                        <div className="btn btn-warning btn-main clicked px-4 py-2 mt-4">
-                        <span className="font-weight-medium text-dark">Learn More</span>
-                        </div>
+                        <Link to={{pathname: "/recipe/" + newRecipe.id_recipe}}>
+                            <div className="btn btn-warning btn-main clicked px-4 py-2 mt-4">
+                                <span className="font-weight-medium text-dark">Learn More</span>
+                            </div>
+                        </Link>
                     </div>
                     </div>
                 </div>

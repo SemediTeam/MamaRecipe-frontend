@@ -2,22 +2,21 @@ import React, { Component } from 'react'
 import { Form, InputGroup } from 'react-bootstrap';
 import { Link, Route } from 'react-router-dom';
 import Navbar from "../../components/navbar";
-import { SearchIcon,Recipe1 } from '../../assets/index';
+import { SearchIcon } from '../../assets/index';
 import { Placeholder } from 'semantic-ui-react'
+import Footer from '../../components/footer';
 import './search.css';
 
 import { connect } from 'react-redux';
 import { searchItemAction } from '../../global/actionCreators/search';
 
 class Search extends Component {
-  constructor(props){
-    super(props);
+  constructor(){
+    super();
     this.state = {
       placeholder: [1,2,3,4,5,6],
-      dataSearch: false,
-      dataValue: []
     }
-    this._mounted = false
+    // this._mounted = false
   }
 
   handleGetSearch = (params) => {
@@ -33,21 +32,11 @@ class Search extends Component {
     this.handleGetSearch()
   }
 
-  componentDidUpdate= (prevProps,prevState) => {
-    const {items} = this.props
-    if (prevState.dataSearch !== items.isFulfilled) {
-      this.setState({
-        dataSearch: items.isFulfilled
-      })
-    }
-  }
-
   render() {
     const search = this.props.location.search;
     const name = new URLSearchParams(search).get("name");
     const {items} = this.props
 
-    // console.log(`state ${this.state.dataSearch}`);
     // console.log(`props ${items.isFulfilled}`);
     return (
       <>
@@ -78,8 +67,8 @@ class Search extends Component {
             <div className="p-0 pt-4 d-flex flex-wrap">
 
               {
-              this.state.dataSearch ? 
-                items.dataRecipe.recipe && items.dataRecipe.recipe.map(({id_recipe,recipe_name,recipe_desc})=>{
+              items.isFulfilled ? 
+                items.dataRecipe.recipe && items.dataRecipe.recipe.map(({id_recipe,recipe_name,recipe_desc,recipe_img})=>{
                   return(
                     <div className="col-12 col-sm-6 col-md-4 d-flex justify-content-center mb-3 mb-sm-4 mb-lg-5 p-0 px-sm-2 px-lg-3" key={id_recipe}>
                       <div className="search-item position-relative">
@@ -91,7 +80,7 @@ class Search extends Component {
                               <h1 className="w-100" style={{overflow:'hidden', textOverflow:'ellipsis', display:'-webkit-box', WebkitLineClamp:2, WebkitBoxOrient: 'vertical'}}>{recipe_name}</h1>
                               <span className="w-100 font-weight-medium h4" style={{overflow:'hidden', textOverflow:'ellipsis', display:'-webkit-box', WebkitLineClamp:3, WebkitBoxOrient: 'vertical'}}>{recipe_desc}</span>
                             </div>
-                            <img src={Recipe1} className="position-absolute w-100 h-100" alt="recipe" style={{zIndex:'-2',top: 0,left:0, objectFit:'cover', objectPosition:'center'}}/>
+                            <img src={JSON.parse(recipe_img)[0]} className="position-absolute w-100 h-100" alt="recipe" style={{zIndex:'-2',top: 0,left:0, objectFit:'cover', objectPosition:'center'}}/>
                           </Link>
                         </div>
                       </div>
@@ -119,6 +108,7 @@ class Search extends Component {
 
           </div>
         </div>
+        <Route path={this.props.match.path} component={Footer}/>
       </>
     )
   }

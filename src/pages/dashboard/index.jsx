@@ -6,6 +6,7 @@ import ListRecipe from "../../components/dashboard/listRecipe";
 import NewRecipe from "../../components/dashboard/newRecipe";
 import PopularRecipe from "../../components/dashboard/popularRecipe";
 import Navbar from "../../components/navbar";
+import Footer from '../../components/footer';
 import './dashboard.css';
 
 export default class Dashboard extends Component {
@@ -61,7 +62,7 @@ export default class Dashboard extends Component {
         <Route path={this.props.match.path} component={PopularRecipe}/>
         <Route path={this.props.match.path} component={NewRecipe}/>
         <Route path={this.props.match.path} component={ListRecipe}/>
-        
+        <Route path={this.props.match.path} component={Footer}/>
       </>
     )
   }

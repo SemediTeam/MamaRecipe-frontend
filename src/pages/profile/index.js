@@ -1,12 +1,75 @@
+import Axios from 'axios'
 import React, { Component } from 'react'
 import { Link, Redirect, Route, Switch } from 'react-router-dom'
 import { Edit, UserIcon } from '../../assets'
 import Navbar from '../../components/navbar'
 import { Liked, MyRecipes, Saved } from '../../components/profile'
+import Footer from '../../components/footer';
 import './profile.css'
 
+
+const getUrl = 'http://localhost:4000/user/'
+const urlUpdate = 'http://localhost:4000/user/img/'
+
 export class Profile extends Component {
+    constructor(){
+        super();
+        this.state = {
+            profile : {},
+            user_img: [],
+            isHidden : true,
+           
+        }
+    }
+
+    getProfileData = () => {
+        const id = JSON.parse(localStorage.getItem('token')).id
+        const config = {
+            headers: {
+                'Content-type' : 'multipart/form-data', 'x-access-token' : 'Bearer ' + JSON.parse(localStorage.getItem('token')).token
+                }
+            }
+        Axios
+        .get(getUrl + id, config)
+        .then(({data}) => {
+            //console.log(data)
+            this.setState({
+                profile: data.data[0]
+            })
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }
+    componentDidMount = () => {
+        this.getProfileData();
+    }
+
+    handleUpload = (e) => {
+        let x = new FormData()
+        for(let i = 0; i < e.target.files.length; i++){
+            x.append("user_img", e.target.files[i])
+        }
+        e.preventDefault();
+        const config = {
+            headers: {
+                'Content-type' : 'multipart/form-data', 'x-access-token' : 'Bearer ' + JSON.parse(localStorage.getItem('token')).token
+            }
+        }
+        
+        const id =  JSON.parse(localStorage.getItem('token')).id
+        Axios.patch(urlUpdate + id, x, config)
+        .then((data) => {
+            this.getProfileData()
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }
+
+    
     render() {
+        const {profile} = this.state
         return (
             <>
             <Route path={this.props.match.path} component={Navbar} />
@@ -23,12 +86,32 @@ export class Profile extends Component {
             ):(
                 <div className="container section-profile d-flex justify-content-center flex-column align-items-center">
                     <div className="img-profile-section">
-                        <img alt="user-profile" src={UserIcon} className="img-profile"/>
-                        <img alt="pen-edit" src={Edit} className="edit-profile clicked" />
+                        <img alt="user-profile" src={profile.user_img} className="img-profile"/>
+                        <img alt="pen-edit" src={Edit} className="edit-profile clicked" onClick={() => {this.setState({
+                            isHidden : !this.state.isHidden
+                        })}} />
                     </div>
-                    <div className="mt-4">
-                        <h2 className="text-center">{JSON.parse(localStorage.getItem('token')).name}</h2>
-                    </div>
+                    {this.state.isHidden ? (
+                        <div className="mt-4">
+                            <h2 className="text-center">{profile.name}</h2>
+                        </div>
+                    ): (
+                        <div className="update-photo-pass mt-3 ">
+                            <form className="w-100">
+                                <div className="button-wrap">
+                                    <label className="button" for="upload">Change Photo</label>
+                                    <input className="inpt-update-user input-profile" id="upload" type="file" onChange={(e) => {this.handleUpload(e)}}/>
+                                </div>
+                            </form>
+                            <div className="w-100 d-flex justify-content-center"> 
+                                <Link to="/resetPassword" className="text-decoration-none txt-change-pass">Change Password</Link>
+                            </div>
+                        </div>
+                    )}
+                    
+
+
+
                 </div>
             )}
             <div className="container-fluid pl-xl-5 pr-xl-5">
@@ -52,6 +135,7 @@ export class Profile extends Component {
                     </Switch>
                 </div>
             </div>
+            <Route path={this.props.match.path} component={Footer}/>
             </>
         )   
     }

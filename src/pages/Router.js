@@ -12,6 +12,8 @@ import { BlankPage } from '../components/utilities';
 
 import store from '../global/store';
 import AddRecipe from './addRecipe';
+import ResetPass from './resetPassword';
+import EditRecipe from './editRecipe';
 
 export default function Router() {
   return (
@@ -22,9 +24,11 @@ export default function Router() {
           public route
           <Route exact path="/" component={Dashboard}/>
           <Route path="/search" component={Search}/>
-          <Route exact path="/recipe/:id" component={Detail}/>
+          <Route path="/recipe" component={Detail}/>
           <Route exact path="/addRecipe" component={AddRecipe}/>
-          
+          <Route exact path="/resetPassword" component={ResetPass}/>
+          <Route exact path="/editRecipe/:id" component={EditRecipe}/>
+        
           restricted route
           <LoginCheck path="/auth">
             <Route component={Auth}/>
