@@ -110,7 +110,7 @@ class Search extends Component {
                 pageInfo.previousPage !== null ? this.props.dispatch(searchItemAction(pageInfo.previousPage.split('&')[0].split('=')[1],pageInfo.previousPage.split('&')[1].split('=')[1]-1)) : console.log('none');
               }}>Prev</button>
               <div className="mx-4 d-flex justify-content-center">
-                {/* <h2>{pageInfo.currentPage}</h2> */}
+                <h2>{pageInfo.currentPage}</h2>
               </div>
               <button className="btn btn-warning btn-main rounded" onClick={(e)=>{
                 e.preventDefault()
