@@ -133,7 +133,7 @@ function DetailVideo(props) {
         <div className="w-100 h-100 d-flex flex-column flex-lg-row pt-md-5 mt-5">
           <div className="col-12 col-lg-8 px-0">
             <div className="w-100">
-              <div ref={playerContainerRef} className="detail-video-player">
+              <div ref={playerContainerRef} className="detail-video-player" style={{maxHeight:'70vh'}}>
                 <ReactPlayer
                   ref={playerRef}
                   url={JSON.parse(dataRecipe.recipe_video)[Number(indexvideo) - 1]}

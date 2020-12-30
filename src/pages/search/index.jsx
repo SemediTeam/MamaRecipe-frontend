@@ -4,6 +4,7 @@ import { Link, Route } from 'react-router-dom';
 import Navbar from "../../components/navbar";
 import { SearchIcon } from '../../assets/index';
 import { Placeholder } from 'semantic-ui-react'
+import Footer from '../../components/footer';
 import './search.css';
 
 import { connect } from 'react-redux';
@@ -107,6 +108,7 @@ class Search extends Component {
 
           </div>
         </div>
+        <Route path={this.props.match.path} component={Footer}/>
       </>
     )
   }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './detail.css'
 import Navbar from "../../components/navbar/index";
+import Footer from '../../components/footer';
 import DetailRecipe from './detailRecipe';
 import DetailVideo from './detailVideo';
 import {  Route } from 'react-router-dom';
@@ -44,6 +45,7 @@ class Detail extends Component {
         <Route path={this.props.match.path} component={Navbar}/>
         <Route exact path={`${this.props.match.path}/${recipeId}`} component={DetailRecipe}/>
         <Route exact path={`${this.props.match.path}/${recipeId}/:id`} component={DetailVideo}/>
+        <Route path={this.props.match.path} component={Footer}/>
       </>
     )
   }
