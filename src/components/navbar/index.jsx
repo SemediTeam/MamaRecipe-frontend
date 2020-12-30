@@ -19,7 +19,7 @@ class NavbarSticky extends Component {
       Scroll: 'top-navbar w-100',
       isBurger: false,
       burger: '',
-      imgUser : JSON.parse(localStorage.getItem('token')) !== null && JSON.parse(localStorage.getItem('token')).imgUser
+      imgUser : null,
     }
     this._isMounted = false;
   }
@@ -80,6 +80,9 @@ class NavbarSticky extends Component {
   }
 
   componentDidMount(){
+    this.setState({
+      imgUser : JSON.parse(localStorage.getItem('token')) !== null ? JSON.parse(localStorage.getItem('token')).imgUser : null
+    })
     this._isMounted = true;
     this._isMounted && this.changeBackground();
   }
