@@ -1,6 +1,6 @@
 # Mama Recipe
 <div align="center">
-    <img width="250" src="./public/favicon.ico">
+    <img width="250" src="./public/favicon.svg">
 </div>
 
 ## Contents
@@ -11,7 +11,7 @@
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [ENV](#ENV)
-- [USAGE](#Usage)
+- [Usage](#Usage)
 - [Demo Mama Recipe](#demo-mama-recipe)
 - [Related Project](#related-project)
 
