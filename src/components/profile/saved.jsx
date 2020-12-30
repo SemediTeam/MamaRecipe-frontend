@@ -9,7 +9,7 @@ class Saved extends Component {
     bookmarks : []
   }
 
-  getUrl = 'http://localhost:4000/bookmarks'
+  getUrl = 'http://34.194.133.152:4000/bookmarks'
 
   config = {
   headers: {
