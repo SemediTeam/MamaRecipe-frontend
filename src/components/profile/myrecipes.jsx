@@ -38,11 +38,11 @@ class Myrecipes extends Component {
     .get(getUrl, config)
     .then(({data}) => {
       this.setState({
-        img: data.data.map(
-          ({recipe_img}) => {
-            return JSON.parse(recipe_img)
-          }
-        ),
+        // img: data.data.map(
+        //   ({recipe_img}) => {
+        //     return JSON.parse(recipe_img)
+        //   }
+        // ),
         myRecipe : data
       })
     })
@@ -88,15 +88,15 @@ class Myrecipes extends Component {
                 })
               }}>
                   <div className="position-relative img-recipe-profile w-100 clicked">
-                      <img className="w-100 h-100" alt="recipe" src={JSON.parse(recipe_img)[0]} style={{objectFit:'cover',objectPosition:'center'}}/>
+                      <img className="w-100 h-100" alt="recipe" src={imgLoader} style={{objectFit:'cover',objectPosition:'center'}}/>
                       <div className="position-absolute w-100 h-100" style={{zIndex:1, top:0, left:0, backgroundColor:'#00000020'}}></div>
                       {this.state.isHidden ? (
                         <h2 className="position-absolute text-light" style={{zIndex:2, bottom:'15px', left:'15px'}}>{recipe_name}</h2>
                       ) : (
                         <div className="position-absolute d-flex flex-column justify-content-center" style={{zIndex:2, bottom:'35px', left:'35px',}}>
-                          <Link to={{pathname: "/recipe/" + id_recipe}} className="text-light mb-2" style={{fontSize:'30px'}}>See Detail</Link>
+                          <Link to={{pathname: "/recipe/" + id_recipe}} className="text-light mb-4" style={{fontSize:'30px'}}>See Detail</Link>
                           <Link to={{pathname: `/editRecipe/${id_recipe}`}} className="text-light mb-2" style={{fontSize:'30px'}}>Edit Recipe</Link>
-                          <Link  onClick={() => {this.deleteProduct(id_recipe)}}  className="text-light" style={{fontSize:'30px'}}>Delete Recipe</Link>
+                          <p   onClick={() => {this.deleteProduct(id_recipe)}}  className="text-light" style={{fontSize:'30px'}}>Delete Recipe </p>
                         </div>
                       )}
                  </div>

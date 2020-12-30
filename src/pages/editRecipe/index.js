@@ -17,7 +17,7 @@ class EditRecipe extends Component {
                 recipe_name: '',
                 recipe_desc: '',
                 recipe_ingredients: '',
-                recipe_video: []
+                recipe_video: null
             }
         }
 
@@ -25,22 +25,24 @@ class EditRecipe extends Component {
         const id = this.state.id_recipe
         Axios.get(baseUrl + id)
         .then(({data}) => {
-            //console.log(data.data.recipe_video)
+            console.log(data)
             this.setState({
-                recipe_img : JSON.parse(data.data.recipe_img),
+                //recipe_img : JSON.parse(data.data.recipe_img),
                 recipe_name: data.data.recipe_name,
                 recipe_desc: data.data.recipe_desc,
                 recipe_ingredients: data.data.recipe_ingredients,
-                recipe_video: JSON.parse(data.data.recipe_video)
+                // recipe_video: JSON.parse(data.data.recipe_video)
             })
         })
         .catch((err) => {
             console.log(err)
         })
     }
+    
     handlerImage = (e) => {
+        const file = e.target.files
         this.setState({
-            recipe_img : `${e.target.value}`
+            recipe_img : file
         })
     }
 
@@ -67,8 +69,10 @@ class EditRecipe extends Component {
         x.append("recipe_desc", this.state.recipe_desc)
         x.append("recipe_ingredients", this.state.recipe_ingredients)
         if(this.state.recipe_img !== null){
-            x.append("recipe_img", this.state.recipe_img)
+            x.append("recipe_img",this.state.recipe_img[0].name)
         }
+        
+        console.log(this.state.recipe_img[0].name)
 
         if(this.state.recipe_video !== null){
             for(let i = 0; i < this.state.recipe_video.length; i++){
@@ -83,6 +87,7 @@ class EditRecipe extends Component {
         .catch((err) => {
             console.log(err)
         })
+        console.log(x)
     }
 
     componentDidMount = () => {
@@ -95,14 +100,9 @@ class EditRecipe extends Component {
             <>
                 <Route path={this.props.match.path} component={navbar}/>
                 <div className='container d-flex justify-content-center main-add-recipe'>
-                    <form className="position-relative" onSubmit={() => {
-                        this.updateRecipe()
-                    }}>
+                    <form className="position-relative" onSubmit={this.updateRecipe}>
                         <div className="inpt-img d-flex justify-content-center align-items-center position-relative ">
-                            <input placeholder="upload Image" type="file" name="recipe_img" onChange={(e) => {
-                                const file = e.target.files[0];
-                                this.setState({recipe_img: file})
-                            }} />
+                            <input placeholder="upload Image" type="file" name="recipe_img" onChange={this.handlerImage} />
                         </div>
                         <div className="inpt-title d-flex justify-content-center pl-5">
                             <input className="add-recipe-input" name="recipe_name" placeholder={this.state.recipe_name} onChange={this.handlerChange} />
@@ -117,7 +117,7 @@ class EditRecipe extends Component {
                             <input placeholder="Video" type="file" name="recipe_video" onChange={(e) => {
                                 const file = e.target.files;
                                 this.setState({recipe_video: file})
-                            }} multiple/>
+                            }}  multiple/>
                         </div>
                         <div className="d-flex justify-content-center align-items-center pl-5">
                             <Button  className="button-add-recipe" variant="warning" type="submit">Post</Button>
