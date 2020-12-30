@@ -38,7 +38,10 @@ class ResetPassword extends Component {
       .then(() => {
         //this.props.history.push('/profile')
         localStorage.removeItem('otp')
-        this.props.history.push('/auth')
+        setInterval(() => {
+          this.props.history.push('/auth')
+        }, 1500);
+        
       })
       .catch((err) => {
         console.log(err.response)
