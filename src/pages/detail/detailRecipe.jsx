@@ -135,7 +135,7 @@ class DetailRecipe extends Component {
   }
 
   handlePostComment = async (params,id) => {
-    const {dataComment} = this.props.recipe
+    // const {dataComment} = this.props.recipe
     const config = {
       headers: {
         'Content-Type': 'application/json', 'x-access-token' : 'Bearer ' + JSON.parse(params).token
@@ -150,7 +150,7 @@ class DetailRecipe extends Component {
         comment:''
       })
       await this.props.dispatch(commentRecipeAction(id))
-      this.handlerGetUserComment(dataComment)
+      // this.handlerGetUserComment(dataComment)
     }).catch((e)=>{
       console.log(e.response);
     })
@@ -158,7 +158,7 @@ class DetailRecipe extends Component {
 
   handlerGetUserComment = async (obj) => {
     const dataUser = []
-    await obj.map( async ({id_user,comment,name})=>{
+    obj !== undefined ? await obj.map( async ({id_user,comment,name})=>{
       await api.get(`/user/${id_user}`).then(({data})=>{
         dataUser.push({
           id_user,
@@ -167,7 +167,7 @@ class DetailRecipe extends Component {
           comment
         })
       })
-    })
+    }) : this.props.dispatch(commentRecipeAction(Number(this.props.location.pathname.split('/')[2])))
     this.setState({
       dataComment:dataUser,
       pendingComment:false
@@ -177,8 +177,8 @@ class DetailRecipe extends Component {
   componentDidMount = () => {
     const { dataComment } = this.props.recipe
     dataComment !== undefined && this.handlerGetUserComment(dataComment)
-    console.log(this.state.pendingComment);
-    console.log(dataComment);
+    // console.log(this.state.pendingComment);
+    // console.log(dataComment);
   }
 
   componentWillUnmount(){
