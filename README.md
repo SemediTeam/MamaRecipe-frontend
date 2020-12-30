@@ -28,19 +28,28 @@
 - Edit Profile
 - etc
 
-## Requirements for Development
+### Requirements
 
 - [`Node Js`](https://nodejs.org/en/)
 - [`npm`](https://www.npmjs.com/get-npm)
 - [`ReactJs`](https://reactjs.org/)
 - [`Mama REST API`](https://github.com/SemediTeam/recipedia-backend.git)
 
-## Installation for Development
+### Installation
 
-1. Open your terminal or command prompt
-2. Type `git clone https://github.com/SemediTeam/recipedia-frontend.git`
-3. Open the folder and type `npm install` for install dependencies
-4. Create file **_.env_** in root directory with the following contents :
+1. Clone the repo
+   ```sh
+   git clone https://github.com/SemediTeam/recipedia-backend.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+   This will install the dependencies inside `node_modules`
+   
+### ENV configuration
+
+Please create and make the changes in the .env file.
 
 ```bash
 REACT_APP_BASEURL = "http://host_backend:port_backend"
@@ -53,12 +62,17 @@ Example :
 so, you can write in .env file like this :
 
 ```bash
-REACT_APP_BASEURL = "http://localhost:8000"
+REACT_APP_BASEURL = "http://localhost:4000"
 ```
 
-5. Before run this, you must installation backend and then run backend
-6. Type `npm start` in terminal for running this project.
-7. If you want to build, type `npm run build`.
+### Usage
+
+`node index` OR `nodemon start` OR `npm start`.
+
+Runs the app in the development mode.<br>
+Open [http://localhost:3000/](http://localhost:3000/) to view it in the browser.
+
+If you want to build, type `npm run build`.
 
 ## Screenshoots
 
