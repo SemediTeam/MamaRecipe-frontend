@@ -35,12 +35,13 @@ class ResetPassword extends Component {
       })
     }else{
      await api.patch('/auth/reset', data)
-      .then(() => {
+      .then( async () => {
         //this.props.history.push('/profile')
-        localStorage.removeItem('otp')
-        setInterval(() => {
-          this.props.history.push('/auth')
-        }, 1500);
+        await localStorage.removeItem('otp')
+        await this.setState({
+          errMsg : ''
+        })
+        await this.props.history.push('/auth')
         
       })
       .catch((err) => {

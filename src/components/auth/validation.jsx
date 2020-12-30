@@ -33,12 +33,12 @@ export default class Validate extends Component {
     })
     .then( async ({data})=>{
       await localStorage.setItem('otp', JSON.stringify(data.data[0].otp))
-      this.setState({
+      await this.setState({
         errMsg : ''
       })
-      setInterval(() => {
-        this.props.history.push('/auth/resetPassword')
-      }, 1500);
+      
+      await this.props.history.push('/auth/resetPassword')
+      
     }).catch((e)=>{
     if (e.response.data.error === 'Wrong OTP') {
       this.setState({
