@@ -33,7 +33,7 @@ export default class Validate extends Component {
     })
     .then( async ({data})=>{
       await localStorage.setItem('otp', JSON.stringify(data.data[0].otp))
-      await this.setState({
+      this.setState({
         errMsg : ''
       })
       
@@ -45,6 +45,9 @@ export default class Validate extends Component {
         errMsg : 'wrong code'
       })
     }})
+    }
+    componentDidMount(){
+      localStorage.setItem('otp', 'otp placeholder')
     }
   render() {
     return (
