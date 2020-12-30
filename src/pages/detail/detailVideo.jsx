@@ -197,7 +197,7 @@ function DetailVideo(props) {
               {
                 listVideo && listVideo.map((value,index)=> {
                 return (
-                  <div className="col-12 col-sm-6 col-md-4 col-lg-12 pb-2 pb-lg-4 px-2 pl-lg-4 pr-lg-0">
+                  <div className="col-12 col-sm-6 col-md-4 col-lg-12 pb-2 pb-lg-4 px-2 pl-lg-4 pr-lg-0" key={index}>
                     <Link to={{pathname:`/recipe/${dataRecipe.id_recipe}/${value + 1}`}} className="w-100">
                       <div className="detail-other-video clicked">
                         <ReactPlayer key={index}
