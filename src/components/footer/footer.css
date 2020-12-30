@@ -1,0 +1,30 @@
+.footer-head-text{
+  font-size: xx-large;
+}
+.footer-subhead-text{
+  font-size: x-large;
+}
+.footer-text{
+  font-size: large;
+  height: 60px;
+}
+.foot{
+  height: 40vh;
+  background-color: #EFC81A;
+}
+
+@media screen and (max-width: 767px){
+  .footer-head-text{
+    font-size: x-large;
+  }
+  .footer-subhead-text{
+    font-size: large;
+  }
+  .footer-text{
+    font-size: medium;
+    height: auto;
+  }
+  .foot{
+    height: 50vh;
+  }
+}

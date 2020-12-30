@@ -4,6 +4,7 @@ import { Link, Redirect, Route, Switch } from 'react-router-dom'
 import { Edit, UserIcon } from '../../assets'
 import Navbar from '../../components/navbar'
 import { Liked, MyRecipes, Saved } from '../../components/profile'
+import Footer from '../../components/footer';
 import './profile.css'
 
 
@@ -134,6 +135,7 @@ export class Profile extends Component {
                     </Switch>
                 </div>
             </div>
+            <Route path={this.props.match.path} component={Footer}/>
             </>
         )   
     }
