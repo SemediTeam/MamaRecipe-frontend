@@ -36,8 +36,15 @@ class Search extends Component {
     const search = this.props.location.search;
     const name = new URLSearchParams(search).get("name");
     const {items} = this.props
+    const {pageInfo} = this.props.items.dataRecipe
 
-    // console.log(`props ${items.isFulfilled}`);
+    const currPage = (param) => {
+      if (param !== undefined) {
+        return param.currentPage
+      }else{return 1}
+    }
+
+    console.log(items);
     return (
       <>
         <Route path={this.props.match.path} component={Navbar}/>
@@ -67,7 +74,7 @@ class Search extends Component {
             <div className="p-0 pt-4 d-flex flex-wrap">
 
               {
-              items.isFulfilled ? 
+              items.isFulfilled || items.isRejected ? 
                 items.dataRecipe.recipe && items.dataRecipe.recipe.map(({id_recipe,recipe_name,recipe_desc,recipe_img})=>{
                   return(
                     <div className="col-12 col-sm-6 col-md-4 d-flex justify-content-center mb-3 mb-sm-4 mb-lg-5 p-0 px-sm-2 px-lg-3" key={id_recipe}>
@@ -103,9 +110,20 @@ class Search extends Component {
               }
 
             </div>
-          </div>
-          <div>
-
+            <div className="col-12 col-md-6 col-lg-4 d-flex justify-content-between px-2 px-xl-5">
+              <button className="btn btn-warning btn-main rounded" onClick={(e)=>{
+                e.preventDefault()
+                pageInfo.previousPage !== null ? this.props.dispatch(searchItemAction(pageInfo.previousPage.split('&')[0].split('=')[1],pageInfo.previousPage.split('&')[1].split('=')[1]-1)) : console.log('none');
+              }}>Prev</button>
+              <div className="mx-4 d-flex justify-content-center">
+                <h2>{currPage(pageInfo)}</h2>
+              </div>
+              <button className="btn btn-warning btn-main rounded" onClick={(e)=>{
+                e.preventDefault()
+                pageInfo.nextPage !== null ? this.props.dispatch(searchItemAction(pageInfo.nextPage.split('&')[0].split('=')[1],pageInfo.nextPage.split('&')[1].split('=')[1])) : console.log('none');
+                // this.props.history.push(`/search?name=${pageInfo.nextPage.split('_')[1]}`)
+              }}>Next</button>
+            </div>
           </div>
         </div>
         <Route path={this.props.match.path} component={Footer}/>
