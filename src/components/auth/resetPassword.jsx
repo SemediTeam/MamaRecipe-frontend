@@ -1,15 +1,16 @@
-import Axios from 'axios'
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { Button, Form } from 'react-bootstrap';
-import { connect } from 'react-redux';
+import axios from 'axios';
 
-const url = 'http://34.194.133.152:4000/auth/reset/';
+const api = axios.create({
+  baseURL: process.env.REACT_APP_BASEURL
+});
 
 class ResetPassword extends Component {
   constructor(){
     super()
     this.state = {
-      email: JSON.parse(localStorage.getItem('token')).email,
+      email: '',
       password: '',
       matchpassword: '',
       errMsg: ''
@@ -33,11 +34,15 @@ class ResetPassword extends Component {
         errMsg : 'Password isn\'t match with Confirm Password'
       })
     }else{
-     await Axios.patch(url, data)
-      .then(() => {
+     await api.patch('/auth/reset', data)
+      .then( async () => {
         //this.props.history.push('/profile')
-        // alert('data masok bosku')
-        this.props.history.push('/profile')
+        await localStorage.removeItem('otp')
+        await this.setState({
+          errMsg : ''
+        })
+        await this.props.history.push('/auth')
+        
       })
       .catch((err) => {
         console.log(err.response)
@@ -46,18 +51,23 @@ class ResetPassword extends Component {
   }
 
   render() {
-    console.log(this.state.email, this.state.password)
+    // console.log(this.state.email, this.state.password)
     return (
       <>
         <Form className="w-100 mb-3 mt-3" onSubmit={this.handlerSubmit}>
           <Form.Group controlId="formBasicEmail">
-            <Form.Label>Create New Password</Form.Label>
-            <Form.Control type="password" className="pt-4 pb-4 pl-4 pr-0 input-auth" name="password" required onChange={this.handlerChange}/>
+            <Form.Label>Email address*</Form.Label>
+            <Form.Control type="email" placeholder="Enter email address" className="pt-4 pb-4 pl-4 pr-0 input-auth" name="email" required onChange={this.handlerChange}/>
           </Form.Group>
 
           <Form.Group controlId="formBasicPassword">
+            <Form.Label>Create New Password</Form.Label>
+            <Form.Control type="password" placeholder="New Password" className="pt-4 pb-4 pl-4 pr-0 input-auth" name="password" required onChange={this.handlerChange}/>
+          </Form.Group>
+
+          <Form.Group controlId="formBasicCPassword">
             <Form.Label>New Password</Form.Label>
-            <Form.Control type="password"  className="pt-4 pb-4 pl-4 pr-0 input-auth" name="matchpassword" required onChange={this.handlerChange}/>
+            <Form.Control type="password" placeholder="Confirm Password"  className="pt-4 pb-4 pl-4 pr-0 input-auth" name="matchpassword" required onChange={this.handlerChange}/>
           </Form.Group>
           <Form.Group controlId="formBasicCheckbox">
             <Form.Check type="checkbox" label="I agree to terms & conditions" required/>
@@ -72,10 +82,4 @@ class ResetPassword extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return{
-    auth: state
-  }
-}
-
-export default connect(mapStateToProps)(ResetPassword)
+export default ResetPassword

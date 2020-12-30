@@ -61,6 +61,12 @@ class Login extends Component {
           password: ''
         })
       }
+      if (e.response.data.error === 'Please verify your account first!') {
+        this.setState({
+          errMsg : 'Please Verified Your Account',
+          password: ''
+        })
+      }
     })
   }
 
