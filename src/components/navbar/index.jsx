@@ -81,7 +81,7 @@ class NavbarSticky extends Component {
 
   componentDidMount(){
     this.setState({
-      imgUser : JSON.parse(localStorage.getItem('token')) !== null ? JSON.parse(localStorage.getItem('token')).imgUser : null
+      imgUser : JSON.parse(localStorage.getItem('token')) !== null ? JSON.parse(localStorage.getItem('token')).imgUser : false
     })
     this._isMounted = true;
     this._isMounted && this.changeBackground();
@@ -102,7 +102,7 @@ class NavbarSticky extends Component {
 
   render() {
     const {imgUser} = this.state
-    const iconuser = imgUser !== null ? imgUser : UserIcon
+    const iconuser = imgUser ? imgUser : UserIcon
     window.addEventListener('scroll', this.changeBackground)
     return (
       <>
