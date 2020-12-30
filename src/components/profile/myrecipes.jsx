@@ -3,8 +3,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { imgLoader } from '../../assets'
 
-const getUrl = 'http://localhost:4000/recipe/byuser'
-const urlDelete = 'http://localhost:4000/recipe/'
+const getUrl = 'http://34.194.133.152:4000/recipe/byuser'
+const urlDelete = 'http://34.194.133.152:4000/recipe/'
 
 
 class Myrecipes extends Component {

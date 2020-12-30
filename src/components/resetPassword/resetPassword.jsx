@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
-const url = 'http://localhost:4000/auth/reset/';
+const url = 'http://34.194.133.152:4000/auth/reset/';
 
 class ResetPassword extends Component {
   constructor(){

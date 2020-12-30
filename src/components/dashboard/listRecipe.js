@@ -2,7 +2,7 @@ import Axios from 'axios';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-const getUrl = 'http://localhost:4000/recipe/popular';
+const getUrl = 'http://34.194.133.152:4000/recipe/popular';
 
 class ListRecipe extends Component {
     state = {

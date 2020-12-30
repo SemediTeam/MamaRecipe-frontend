@@ -8,8 +8,8 @@ import Footer from '../../components/footer';
 import './profile.css'
 
 
-const getUrl = 'http://localhost:4000/user/'
-const urlUpdate = 'http://localhost:4000/user/img/'
+const getUrl = 'http://34.194.133.152:4000/user/'
+const urlUpdate = 'http://34.194.133.152:4000/user/img/'
 
 export class Profile extends Component {
     constructor(){
