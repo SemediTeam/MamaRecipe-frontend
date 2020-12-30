@@ -67,10 +67,6 @@ REACT_APP_BASEURL = "http://host_backend:port_backend"
 
 Example :
 
-- http://host_backend:port_backend is http://localhost:4000
-
-so, you can write in .env file like this :
-
 ```bash
 REACT_APP_BASEURL = "http://localhost:4000"
 ```
