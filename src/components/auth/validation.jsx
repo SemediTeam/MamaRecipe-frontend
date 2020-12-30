@@ -36,15 +36,15 @@ export default class Validate extends Component {
       this.setState({
         errMsg : ''
       })
+      setInterval(() => {
+        this.props.history.push('/auth/resetPassword')
+      }, 1500);
     }).catch((e)=>{
     if (e.response.data.error === 'Wrong OTP') {
       this.setState({
         errMsg : 'wrong code'
       })
     }})
-    setInterval(() => {
-      this.props.history.push('/auth/resetPassword')
-    }, 1500);
     }
   render() {
     return (
