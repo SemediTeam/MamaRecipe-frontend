@@ -36,13 +36,13 @@
 - [`Node Js`](https://nodejs.org/en/)
 - [`npm`](https://www.npmjs.com/get-npm)
 - [`ReactJs`](https://reactjs.org/)
-- [`Mama REST API`](https://github.com/SemediTeam/recipedia-backend.git)
+- [`Mama REST API`](https://github.com/SemediTeam/MamaRecipe-backend.git)
 
 ### Installation
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/SemediTeam/recipedia-backend.git
+   git clone https://github.com/SemediTeam/MamaRecipe-frontend.git
    ```
 2. Install NPM packages
    ```sh
@@ -91,7 +91,7 @@ This is Mama Recipe Web build version, let's try it.
 
 RESTful API for this web application, clone this for development Mama Recipe.
 
-<a href="https://github.com/SemediTeam/recipedia-backend.git">REST API</a>
+<a href="https://github.com/SemediTeam/MamaRecipe-backend">REST API</a>
 
 ## License
 
