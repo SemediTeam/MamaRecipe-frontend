@@ -14,6 +14,7 @@
 - [Screenshoots](#screenshoots)
 - [Demo Mama Recipe](#demo-mama-recipe)
 - [Related Project](#related-project)
+- [License](#license)
 
 ## Description
 
@@ -91,3 +92,7 @@ This is Mama Recipe Web build version, let's try it.
 RESTful API for this web application, clone this for development Mama Recipe.
 
 <a href="https://github.com/SemediTeam/recipedia-backend.git">REST API</a>
+
+## License
+
+Distributed under the [MIT](https://github.com/SemediTeam/recipedia-frontend/blob/main/LICENSE) License.
