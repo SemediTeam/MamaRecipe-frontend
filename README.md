@@ -1,6 +1,6 @@
 # Mama Recipe
 <div align="center">
-    <img height="50%" src="./public/web_hi_res_512.png">
+    <img width="50%" src="./public/web_hi_res_512.png">
 </div>
 
 ## Contents
