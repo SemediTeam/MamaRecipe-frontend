@@ -6,26 +6,18 @@
 ## Contents
 
 - [Description](#description)
-- [Screenshoots](#screenshoots)
 - [Features](#features)
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [ENV](#ENV)
 - [Usage](#Usage)
+- [Screenshoots](#screenshoots)
 - [Demo Mama Recipe](#demo-mama-recipe)
 - [Related Project](#related-project)
 
 ## Description
 
 **Mama Recipe** is a web-like wikipedia but about foods. You can search recipe foods here, or add new recipe here.
-
-## Screenshoots
-
-<div align="center">
-    <img width="100%" src="https://cdn.discordapp.com/attachments/793137172181680148/793682337497088020/unknown.png">
-    <img width="100%" src="https://cdn.discordapp.com/attachments/793137172181680148/793683276937429052/unknown.png">
-    <img width="100%" src="https://cdn.discordapp.com/attachments/793137172181680148/793687168656474132/unknown.png">
-</div>
 
 ## Features
 
@@ -79,6 +71,14 @@ Runs the app in the development mode.<br>
 Open [http://localhost:3000/](http://localhost:3000/) to view it in the browser.
 
 If you want to build, type `npm run build`.
+
+## Screenshoots
+
+<div align="center">
+    <img width="100%" src="https://cdn.discordapp.com/attachments/793137172181680148/793682337497088020/unknown.png">
+    <img width="100%" src="https://cdn.discordapp.com/attachments/793137172181680148/793683276937429052/unknown.png">
+    <img width="100%" src="https://cdn.discordapp.com/attachments/793137172181680148/793687168656474132/unknown.png">
+</div>
 
 ## Demo Mama Recipe
 
