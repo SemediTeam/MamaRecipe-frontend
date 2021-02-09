@@ -1,6 +1,6 @@
 # Mama Recipe
 <div align="center">
-    <img width="250" src="./public/favicon.ico">
+    <img width="100%" src="./public/favicon.ico">
 </div>
 
 ## Contents
