@@ -74,13 +74,7 @@ Open [http://localhost:3000/](http://localhost:3000/) to view it in the browser.
 If you want to build, type `npm run build`.
 
 ## Screenshoots
-<style>
-    img {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-    </style>
-<div align="center">
+<div align="center" style="border: 1px solid #ddd; border-radius: 4px;">
     <img width="100%" src="https://cdn.discordapp.com/attachments/793137172181680148/793682337497088020/unknown.png">
     <img width="100%" src="https://cdn.discordapp.com/attachments/793137172181680148/793683276937429052/unknown.png">
     <img width="100%" src="https://cdn.discordapp.com/attachments/793137172181680148/793687168656474132/unknown.png">
