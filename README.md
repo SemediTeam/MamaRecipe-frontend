@@ -75,9 +75,9 @@ If you want to build, type `npm run build`.
 
 ## Screenshoots
 <div align="center">
-    <img width="100%" src="./imageedit_5_7053757036.png">
-    <img width="100%" src="./imageedit_7_9872707848.png">
-    <img width="100%" src="./imageedit_9_4251986274.png">
+    <img width="100%" src="./public/imageedit_5_7053757036.png">
+    <img width="100%" src="./public/imageedit_7_9872707848.png">
+    <img width="100%" src="./public/imageedit_9_4251986274.png">
 </div>
 
 ## Demo Mama Recipe
