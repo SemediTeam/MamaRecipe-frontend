@@ -206,6 +206,7 @@ class DetailRecipe extends Component {
   render() {
     const {dataRecipe,isFulfilled,isRejected,dataBookmarks,dataLiked} = this.props.recipe
     const {dataComment,pendingComment} = this.state
+    // console.log(dataRecipe.recipe_ingredients);
     return (
       <>
         <div className="position-relative container-fluid mt-5 pt-0 pt-md-5 pl-xl-5 pr-xl-5" onMouseOver={()=>{this.setState({getsomedata: dataRecipe.id_recipe})}}>
@@ -265,7 +266,7 @@ class DetailRecipe extends Component {
                 </div>
                 <div className="mt-5 mb-5 w-100">
                   <h2 className="mb-5">Ingredients</h2>
-                  <p className="m-0 font-weight-medium">{isFulfilled || isRejected ? dataRecipe.recipe_ingredients : 'Loading Ingredients step . . .'}</p>
+                  <p className="m-0 font-weight-medium" style={{whiteSpace: 'pre-line'}}>{isFulfilled || isRejected ? `${dataRecipe.recipe_ingredients}` : 'Loading Ingredients step . . .'}</p>
                 </div>
                 <div className="mt-5 mb-5 w-100 d-flex flex-column">
                   <h2 className="mb-5">Video Step</h2>
