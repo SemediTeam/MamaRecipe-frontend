@@ -65,7 +65,8 @@ class AddRecipe extends Component {
         <Route path={this.props.match.path} component={navbar} />
         <div className="container d-flex justify-content-center main-add-recipe">
           <form onSubmit={this.handleUpload}>
-            <div className="inpt-img d-flex justify-content-center align-items-center">
+            <div className="inpt-img d-flex justify-content-center align-items-center" style={{flexDirection: "column"}}>
+              <p style={{marginBottom: 15, fontSize: 16}}>Upload Recipe Image</p>
               <input
                 placeholder="upload Image"
                 type="file"
@@ -110,7 +111,8 @@ class AddRecipe extends Component {
                 required
               />
             </div>
-            <div className="inpt-video d-flex justify-content-center align-items-center pl-5">
+            <div className="inpt-video d-flex justify-content-center align-items-center pl-5" style={{flexDirection: "column"}}>
+            <p style={{marginBottom: 15, fontSize: 16}}>Upload Tutorial Recipe Videos</p>
               <input
                 placeholder="Video"
                 type="file"
