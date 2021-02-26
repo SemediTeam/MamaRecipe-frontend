@@ -13,8 +13,8 @@
 .dashboard-img-header{
   position: absolute;
   z-index: 1;
-  width: 70vh;
-  height: 70vh;
+  width: 60vh;
+  height: 60vh;
 }
 .dashboard-background{
   z-index: -1;
