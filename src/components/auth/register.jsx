@@ -26,6 +26,8 @@ export default class Register extends Component {
 
   handlerSubmit = async (event) => {
     event.preventDefault();
+    const mailer = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-]/;
+    const passer = /^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{8,}$/;
     const data = JSON.stringify({
       name: this.state.name,
       phone: this.state.phone,
@@ -37,7 +39,17 @@ export default class Register extends Component {
       this.setState({
         errMsg: "Password isn't match with Confirm Password",
       });
+    } else if (this.state.password === "" || !this.state.password.match(passer)) {
+      this.setState({
+        errMsg:
+          "Password must contain at least 1 number, and be longer than 8 character",
+      });
+    } else if (!this.state.email.match(mailer)) {
+      this.setState({ errMsg: "Invalid email format, ex: user@domain.com" });
     } else {
+      this.setState({
+        errMsg: "Please wait..",
+      });
       await api
         .post(`/auth/register`, data, {
           headers: {

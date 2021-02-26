@@ -36,7 +36,7 @@ export default class ForgotPassword extends Component {
     }).catch((e)=>{
       if (e.response.data.error === 'User Not Found') {
         this.setState({
-          errMsg : 'Email not found'
+          errMsg : 'User Not Found'
         })
       }})
     }

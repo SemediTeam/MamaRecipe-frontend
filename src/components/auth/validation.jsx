@@ -33,7 +33,7 @@ export default class Validate extends Component {
       .then(async ({ data }) => {
         await localStorage.setItem("otp", JSON.stringify(data.data[0].otp));
         this.setState({
-          errMsg: "",
+          errMsg: "Please wait..",
         });
 
         await this.props.history.push("/auth/reset");

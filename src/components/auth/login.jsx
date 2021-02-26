@@ -37,6 +37,9 @@ class Login extends Component {
       }
     })
     .then(({data})=>{
+      this.setState({
+        errMsg: "Please wait..",
+      });
       // console.log(data);
       const payload = {
         id    : data.data.id_user,
@@ -52,7 +55,7 @@ class Login extends Component {
     }).catch((e)=>{
       if (e.response.data.error === 'User Not Found!') {
         this.setState({
-          errMsg : 'User Not Found'
+          errMsg : 'Wrong Email or Password'
         })
       }
       if (e.response.data.error === 'Wrong Password') {
