@@ -110,7 +110,7 @@ class Search extends Component {
               }
 
             </div>
-            <div className="col-12 col-md-6 col-lg-4 d-flex justify-content-between px-2 px-xl-5">
+            <div className="container-fluid col-12 col-md-6 col-lg-4 d-flex justify-content-between px-2 px-xl-5">
               <button className="btn btn-warning btn-main rounded" onClick={(e)=>{
                 e.preventDefault()
                 pageInfo.previousPage !== null ? this.props.dispatch(searchItemAction(pageInfo.previousPage.split('&')[0].split('=')[1],pageInfo.previousPage.split('&')[1].split('=')[1]-1)) : console.log('none');
