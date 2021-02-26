@@ -95,11 +95,12 @@ class DetailRecipe extends Component {
           'Content-Type': 'application/json', 'x-access-token' : 'Bearer ' + JSON.parse(params).token
         }
       }
+      //like still error
       await api.post('/likes',data,config).then(()=>{
         this.props.dispatch(likedRecipeAction(config))
       }).catch((e)=>{
         console.log(e.response.status);
-        this.props.dispatch(likedRecipeAction(config))
+        // this.props.dispatch(likedRecipeAction(config))
       })
     }else{
       this.handlerLikeSelected(value)

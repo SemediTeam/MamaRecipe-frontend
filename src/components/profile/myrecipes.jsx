@@ -3,8 +3,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { imgLoader } from '../../assets'
 
-const getUrl = 'http://34.194.133.152:4000/recipe/byuser'
-const urlDelete = 'http://34.194.133.152:4000/recipe/'
+const getUrl = 'http://192.168.1.5:4000/recipe/byuser'
+const urlDelete = 'http://192.168.1.5:4000/recipe/'
 
 
 class Myrecipes extends Component {
@@ -88,7 +88,7 @@ class Myrecipes extends Component {
                 })
               }}>
                   <div className="position-relative img-recipe-profile w-100 clicked">
-                      <img className="w-100 h-100" alt="recipe" src={imgLoader} style={{objectFit:'cover',objectPosition:'center'}}/>
+                      <img className="w-100 h-100" alt="recipe" src={JSON.parse(recipe_img)[0]} style={{objectFit:'cover',objectPosition:'center'}}/>
                       <div className="position-absolute w-100 h-100" style={{zIndex:1, top:0, left:0, backgroundColor:'#00000020'}}></div>
                       {this.state.isHidden ? (
                         <h2 className="position-absolute text-light" style={{zIndex:2, bottom:'15px', left:'15px'}}>{recipe_name}</h2>

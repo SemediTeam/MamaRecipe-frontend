@@ -9,7 +9,7 @@ class Saved extends Component {
     bookmarks : []
   }
 
-  getUrl = 'http://34.194.133.152:4000/bookmarks'
+  getUrl = 'http://192.168.1.5:4000/bookmarks'
 
   config = {
   headers: {
@@ -23,9 +23,9 @@ class Saved extends Component {
     Axios
     .get(this.getUrl, this.config)
     .then(({data}) => {
-      //console.log(data.data)
+      // console.log(data.data)
       this.setState({
-        bookmarks : data
+        bookmarks : data.data
       })
     })
     .catch((err) => {
@@ -40,7 +40,7 @@ class Saved extends Component {
 
   render() {
     const {bookmarks} = this.state
-    //console.log(bookmarks.data.length)
+    // console.log(bookmarks.length)
     return (
       <>
         {bookmarks[0] === undefined ? (
@@ -55,7 +55,7 @@ class Saved extends Component {
           </>
         ) : (
           <>
-          {bookmarks[0] !== undefined && bookmarks.data.map(
+          {bookmarks[0] !== undefined && bookmarks.map(
             ({recipe_name, recipe_img, id_recipe}) => {
               return(
                     <div className="col-sm-6 col-lg-4 col-xl-3 d-flex justify-content-center mt-2 mb-4 pl-3 pr-3" key={id_recipe}>

@@ -50,7 +50,7 @@ class Login extends Component {
       this.props.dispatch(authLoginAction())
       this.props.history.push('/')
     }).catch((e)=>{
-      if (e.response.data.error === 'User Not Found') {
+      if (e.response.data.error === 'User Not Found!') {
         this.setState({
           errMsg : 'Email not found'
         })

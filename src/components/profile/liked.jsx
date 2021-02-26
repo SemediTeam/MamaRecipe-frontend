@@ -2,7 +2,7 @@ import Axios from 'axios';
 import React, { Component } from 'react'
 import { imgLoader } from '../../assets'
 
-const getUrl = 'http://34.194.133.152:4000/likes'
+const getUrl = 'http://192.168.1.5:4000/likes'
 
 class Liked extends Component {
     state={

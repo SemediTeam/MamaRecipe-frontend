@@ -5,7 +5,7 @@ import { Route } from 'react-router-dom'
 import navbar from '../../components/navbar'
 import './editrecipe.css'
 
-const baseUrl = 'http://34.194.133.152:4000/recipe/'
+const baseUrl = 'http://192.168.1.5:4000/recipe/'
 
 class EditRecipe extends Component {
 
