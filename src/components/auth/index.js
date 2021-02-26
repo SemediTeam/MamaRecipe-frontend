@@ -1,7 +1,7 @@
 import Login from "./login";
 import Register from "./register";
-import ForgotPassword from "./forgotPassword";
+import ForgotPassword from "./forgot";
 import Validate from "./validation";
-import ResetPassword from './resetPassword';
+import ResetPassword from "./reset";
 
-export {Login,Register,ForgotPassword,Validate,ResetPassword}
+export { Login, Register, ForgotPassword, Validate, ResetPassword };

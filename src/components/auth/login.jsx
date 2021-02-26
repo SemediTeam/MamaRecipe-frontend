@@ -50,14 +50,14 @@ class Login extends Component {
       this.props.dispatch(authLoginAction())
       this.props.history.push('/')
     }).catch((e)=>{
-      if (e.response.data.error === 'User Not Found') {
+      if (e.response.data.error === 'User Not Found!') {
         this.setState({
-          errMsg : 'Email not found'
+          errMsg : 'User Not Found'
         })
       }
       if (e.response.data.error === 'Wrong Password') {
         this.setState({
-          errMsg : 'Wrong Password',
+          errMsg : 'Wrong Email or Password',
           password: ''
         })
       }
@@ -95,7 +95,7 @@ class Login extends Component {
         </Form>
         <div className="w-100 d-flex flex-column">
           <div className="w-100 row justify-content-end mb-3">
-            <Link to="/auth/forgotpassword" className="main-color clicked blur-color text-decoration-none">
+            <Link to="/auth/forgot" className="main-color clicked blur-color text-decoration-none">
               Forgot Password?
             </Link>
           </div>

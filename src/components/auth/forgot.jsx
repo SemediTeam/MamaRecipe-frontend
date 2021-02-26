@@ -31,7 +31,7 @@ export default class ForgotPassword extends Component {
     })
     .then(({data})=>{
       console.log(data);
-      
+      sessionStorage.setItem("email", this.state.email)
       this.props.history.push('/auth/validation')
     }).catch((e)=>{
       if (e.response.data.error === 'User Not Found') {

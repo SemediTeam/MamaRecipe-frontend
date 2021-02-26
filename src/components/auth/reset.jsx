@@ -10,7 +10,7 @@ class ResetPassword extends Component {
   constructor(){
     super()
     this.state = {
-      email: '',
+      // email: '',
       password: '',
       matchpassword: '',
       errMsg: ''
@@ -25,7 +25,7 @@ class ResetPassword extends Component {
     e.preventDefault()
     const data = ({
         password : this.state.password,
-        email : this.state.email,
+        email : sessionStorage.getItem("email")
     })
     console.log(data)
 
@@ -55,10 +55,10 @@ class ResetPassword extends Component {
     return (
       <>
         <Form className="w-100 mb-3 mt-3" onSubmit={this.handlerSubmit}>
-          <Form.Group controlId="formBasicEmail">
+          {/* <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address*</Form.Label>
             <Form.Control type="email" placeholder="Enter email address" className="pt-4 pb-4 pl-4 pr-0 input-auth" name="email" required onChange={this.handlerChange}/>
-          </Form.Group>
+          </Form.Group> */}
 
           <Form.Group controlId="formBasicPassword">
             <Form.Label>Create New Password</Form.Label>
