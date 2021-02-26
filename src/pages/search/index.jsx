@@ -10,6 +10,8 @@ import './search.css';
 import { connect } from 'react-redux';
 import { searchItemAction } from '../../global/actionCreators/search';
 
+import { NotFound } from '../../assets/index';
+
 class Search extends Component {
   constructor(){
     super();
@@ -50,9 +52,9 @@ class Search extends Component {
         <Route path={this.props.match.path} component={Navbar}/>
         <div className="container-fluid p-0 p-md-3 px-xl-5 mt-0 mt-md-5">
           <div className="d-flex d-md-none mt-3"></div>
-          <div className="px-3 px-xl-5 w-100 d-flex mt-1 mt-md-3 justify-content-end justify-content-md-between align-items-center flex-wrap search-header">
+          <div className="px-3 px-xl-5 w-100 d-flex mt-4 mt-md-3 justify-content-center justify-content-md-between align-items-center flex-wrap search-header">
             <p className="blur-color font-weight-medium m-0 d-none d-md-flex row flex-nowrap h4">Getting result <span className="text-dark mx-1">' {name} '</span> items</p>
-            <InputGroup className="col-9 col-md-6 col-lg-4 pr-0 mt-1 mt-md-0 py-3 py-md-5">
+            <InputGroup className="col-9 col-md-6 col-lg-4 pr-0 mt-5 mt-md-0 py-3 py-md-5">
               <Form.Control size="lg" id="searchInput" type="text" placeholder="Search Food, Recipes" className="py-3 py-md-2"
               onKeyPress={(e)=>{
                 if(e.target.value !== '' && e.key === 'Enter'){
@@ -108,22 +110,34 @@ class Search extends Component {
                   )
                 })
               }
+              {
+                items.isRejected && (
+                  <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', width: '100%', marginBottom: 40}}>
+                    <img src={NotFound} alt="Recipe Not Found"/>
+                    <h3 style={{marginTop: 20, color: '#999'}}>Recipe Not Found</h3>
+                  </div>
+                )
+              }
 
             </div>
-            <div className="col-12 col-md-6 col-lg-4 d-flex justify-content-between px-2 px-xl-5">
-              <button className="btn btn-warning btn-main rounded" onClick={(e)=>{
-                e.preventDefault()
-                pageInfo.previousPage !== null ? this.props.dispatch(searchItemAction(pageInfo.previousPage.split('&')[0].split('=')[1],pageInfo.previousPage.split('&')[1].split('=')[1]-1)) : console.log('none');
-              }}>Prev</button>
-              <div className="mx-4 d-flex justify-content-center">
-                <h2>{currPage(pageInfo)}</h2>
-              </div>
-              <button className="btn btn-warning btn-main rounded" onClick={(e)=>{
-                e.preventDefault()
-                pageInfo.nextPage !== null ? this.props.dispatch(searchItemAction(pageInfo.nextPage.split('&')[0].split('=')[1],pageInfo.nextPage.split('&')[1].split('=')[1])) : console.log('none');
-                // this.props.history.push(`/search?name=${pageInfo.nextPage.split('_')[1]}`)
-              }}>Next</button>
-            </div>
+            {
+              items.isFulfilled && (
+                <div className="col-12 col-md-6 col-lg-4 d-flex justify-content-between px-2 px-xl-5">
+                  <button className="btn btn-warning btn-main rounded" onClick={(e)=>{
+                    e.preventDefault()
+                    pageInfo.previousPage !== null ? this.props.dispatch(searchItemAction(pageInfo.previousPage.split('&')[0].split('=')[1],pageInfo.previousPage.split('&')[1].split('=')[1]-1)) : console.log('none');
+                  }}>Prev</button>
+                  <div className="mx-4 d-flex justify-content-center">
+                    <h2>{currPage(pageInfo)}</h2>
+                  </div>
+                  <button className="btn btn-warning btn-main rounded" onClick={(e)=>{
+                    e.preventDefault()
+                    pageInfo.nextPage !== null ? this.props.dispatch(searchItemAction(pageInfo.nextPage.split('&')[0].split('=')[1],pageInfo.nextPage.split('&')[1].split('=')[1])) : console.log('none');
+                    // this.props.history.push(`/search?name=${pageInfo.nextPage.split('_')[1]}`)
+                  }}>Next</button>
+                </div>
+              )
+            }
           </div>
         </div>
         <Route path={this.props.match.path} component={Footer}/>

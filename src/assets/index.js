@@ -24,9 +24,10 @@ import { likeNoSelected,likeSelected } from './icon/like';
 
 //loader
 import imgLoader from "./image/loader_main.gif";
+import NotFound from './image/not_found_recipe.jpg';
 
 
 
 export {ImgDashboard, Recipe1, Recipe2, Recipe3 ,Recipe4 ,Recipe5, Recipe6, Popular, New, Image1, Image2, authImage}
 export {UserIcon, LogoAuth, SearchIcon, Edit, PlayButton, PauseButton, bookmarkSelected, bookmarkNoSelected,likeSelected,likeNoSelected}
-export {imgLoader}
+export {imgLoader,NotFound}

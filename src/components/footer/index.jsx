@@ -9,7 +9,7 @@ export default function Footer() {
           <h1 className="text-nowrap footer-head-text">Eat, Cook, Repeat</h1>
           <p className="text-center footer-subhead-text">Share your best recipe by uploading here !</p>
         </div>
-        <div className="w-100 d-flex justify-content-md-center flex-nowrap footer-text font-weight-medium mt-0 mt-md-5">
+        <div className="w-100 d-flex justify-content-md-center flex-nowrap footer-text font-weight-medium mt-0">
           <div className="col-md-8 col-xl-6 d-flex justify-content-between flex-wrap flex-column flex-md-row">
             <p>Product</p>
             <p>Company</p>
