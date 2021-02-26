@@ -45,7 +45,7 @@
     flex-basis: auto !important;
   }
   .navbar-link-custom{
-    margin-left: -56px ;
+    margin-right: -56px ;
     font-size: x-large;
   }
 }

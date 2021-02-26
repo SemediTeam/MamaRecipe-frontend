@@ -130,21 +130,8 @@ class NavbarSticky extends Component {
           <Navbar
             collapseOnSelect
             expand="md"
-            className={`w-100 pl-xl-5 pr-xl-5 py-3 py-md-2 align-items-start align-items-md-center justify-content-start justify-content-md-between ${this.state.burger}`}
+            className={`w-100 pl-xl-5 pr-xl-5 py-3 py-md-2 align-items-start align-items-md-center justify-content-end justify-content-md-between ${this.state.burger}`}
           >
-            <div className="btn btn-warning btn-main p-0">
-              <Navbar.Toggle
-                aria-controls="responsive-navbar-nav"
-                style={{ outline: "none" }}
-                onClick={(e) => {
-                  e.preventDefault();
-                  this.setState({
-                    isBurger: !this.state.isBurger,
-                  });
-                  this.changeBackground();
-                }}
-              />
-            </div>
             <Navbar.Collapse
               id="responsive-navbar-nav"
               className="pl-0 pl-md-3 pl-xl-5 pr-0 justify-content-md-between nav-small pt-5 pt-md-0 mt-5 mt-md-0 navbar-link-custom"
@@ -204,6 +191,19 @@ class NavbarSticky extends Component {
                 {this.conditionalAuth()}
               </div>
             </Navbar.Brand>
+            <div className="btn btn-warning btn-main p-0">
+              <Navbar.Toggle
+                aria-controls="responsive-navbar-nav"
+                style={{ outline: "none" }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  this.setState({
+                    isBurger: !this.state.isBurger,
+                  });
+                  this.changeBackground();
+                }}
+              />
+            </div>
           </Navbar>
         </div>
       </>
