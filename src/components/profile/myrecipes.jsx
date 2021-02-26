@@ -66,7 +66,7 @@ class Myrecipes extends Component {
 
     return (
       <>
-        {myRecipe === null ? (
+        {myRecipe.data === undefined ? (
           <>
             <div className="col-sm-6 col-lg-4 col-xl-3 d-flex justify-content-center mt-2 mb-4 pl-3 pr-3">
                 <div className="position-relative img-recipe-profile clicked">
