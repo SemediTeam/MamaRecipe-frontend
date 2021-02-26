@@ -70,6 +70,9 @@ class NavbarSticky extends Component {
               })
               .then(() => {
                 localStorage.removeItem("token");
+                this.setState({
+                  img: UserIcon
+                })
                 this.props.dispatch(authLogoutAction());
               })
               .catch((e) => {
@@ -97,7 +100,7 @@ class NavbarSticky extends Component {
 
   componentDidMount() {
     this.setState({
-      img: JSON.parse(localStorage.getItem("token")).imgUser,
+      img: localStorage.getItem("token") === null ? `${UserIcon}` : JSON.parse(localStorage.getItem("token")).imgUser
     });
     this._isMounted = true;
     this._isMounted && this.changeBackground();
@@ -118,7 +121,6 @@ class NavbarSticky extends Component {
 
   render() {
     const { img } = this.state;
-    console.log("img", img);
     window.addEventListener("scroll", this.changeBackground);
     return (
       <>
