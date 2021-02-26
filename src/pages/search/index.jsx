@@ -120,21 +120,24 @@ class Search extends Component {
               }
 
             </div>
+
             {
               items.isFulfilled && (
-                <div className="col-12 col-md-6 col-lg-4 d-flex justify-content-between px-2 px-xl-5">
-                  <button className="btn btn-warning btn-main rounded" onClick={(e)=>{
-                    e.preventDefault()
-                    pageInfo.previousPage !== null ? this.props.dispatch(searchItemAction(pageInfo.previousPage.split('&')[0].split('=')[1],pageInfo.previousPage.split('&')[1].split('=')[1]-1)) : console.log('none');
-                  }}>Prev</button>
-                  <div className="mx-4 d-flex justify-content-center">
-                    <h2>{currPage(pageInfo)}</h2>
+                <div className="container-fluid col-12 col-md-6 col-lg-4 d-flex justify-content-between px-2 px-xl-5">
+                  <div className="col-12 col-md-6 col-lg-4 d-flex justify-content-between px-2 px-xl-5">
+                    <button className="btn btn-warning btn-main rounded" onClick={(e)=>{
+                      e.preventDefault()
+                      pageInfo.previousPage !== null ? this.props.dispatch(searchItemAction(pageInfo.previousPage.split('&')[0].split('=')[1],pageInfo.previousPage.split('&')[1].split('=')[1]-1)) : console.log('none');
+                    }}>Prev</button>
+                    <div className="mx-4 d-flex justify-content-center">
+                      <h2>{currPage(pageInfo)}</h2>
+                    </div>
+                    <button className="btn btn-warning btn-main rounded" onClick={(e)=>{
+                      e.preventDefault()
+                      pageInfo.nextPage !== null ? this.props.dispatch(searchItemAction(pageInfo.nextPage.split('&')[0].split('=')[1],pageInfo.nextPage.split('&')[1].split('=')[1])) : console.log('none');
+                      // this.props.history.push(`/search?name=${pageInfo.nextPage.split('_')[1]}`)
+                    }}>Next</button>
                   </div>
-                  <button className="btn btn-warning btn-main rounded" onClick={(e)=>{
-                    e.preventDefault()
-                    pageInfo.nextPage !== null ? this.props.dispatch(searchItemAction(pageInfo.nextPage.split('&')[0].split('=')[1],pageInfo.nextPage.split('&')[1].split('=')[1])) : console.log('none');
-                    // this.props.history.push(`/search?name=${pageInfo.nextPage.split('_')[1]}`)
-                  }}>Next</button>
                 </div>
               )
             }
