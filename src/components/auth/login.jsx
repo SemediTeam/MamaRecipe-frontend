@@ -37,6 +37,9 @@ class Login extends Component {
       }
     })
     .then(({data})=>{
+      this.setState({
+        errMsg: "Please wait..",
+      });
       // console.log(data);
       const payload = {
         id    : data.data.id_user,
@@ -52,12 +55,12 @@ class Login extends Component {
     }).catch((e)=>{
       if (e.response.data.error === 'User Not Found!') {
         this.setState({
-          errMsg : 'Email not found'
+          errMsg : 'Wrong Email or Password'
         })
       }
       if (e.response.data.error === 'Wrong Password') {
         this.setState({
-          errMsg : 'Wrong Password',
+          errMsg : 'Wrong Email or Password',
           password: ''
         })
       }
@@ -95,7 +98,7 @@ class Login extends Component {
         </Form>
         <div className="w-100 d-flex flex-column">
           <div className="w-100 row justify-content-end mb-3">
-            <Link to="/auth/forgotpassword" className="main-color clicked blur-color text-decoration-none">
+            <Link to="/auth/forgot" className="main-color clicked blur-color text-decoration-none">
               Forgot Password?
             </Link>
           </div>
