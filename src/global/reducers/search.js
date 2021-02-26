@@ -31,6 +31,7 @@ const searchRecipeReducer = (prevState = defaultState, action) => {
         isPending: false,
         isRejected: true,
         err: action.payload,
+        dataRecipe: {},
       };
     case getSearchItem + fulfilled:
       return {
