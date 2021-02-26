@@ -17,6 +17,7 @@ class Search extends Component {
     super();
     this.state = {
       placeholder: [1,2,3,4,5,6],
+      searchkey: ''
     }
     // this._mounted = false
   }
@@ -46,7 +47,7 @@ class Search extends Component {
       }else{return 1}
     }
 
-    console.log(items);
+    console.log(this.state.searchkey);
     return (
       <>
         <Route path={this.props.match.path} component={Navbar}/>
@@ -56,6 +57,9 @@ class Search extends Component {
             <p className="blur-color font-weight-medium m-0 d-none d-md-flex row flex-nowrap h4">Getting result <span className="text-dark mx-1">' {name} '</span> items</p>
             <InputGroup className="col-9 col-md-6 col-lg-4 pr-0 mt-5 mt-md-0 py-3 py-md-5">
               <Form.Control size="lg" id="searchInput" type="text" placeholder="Search Food, Recipes" className="py-3 py-md-2"
+              onChange={(e) => this.setState({
+                searchkey: e.target.value
+              })}
               onKeyPress={(e)=>{
                 if(e.target.value !== '' && e.key === 'Enter'){
                   e.preventDefault()
@@ -67,7 +71,16 @@ class Search extends Component {
                 }
               }}/>
               <InputGroup.Prepend>
-                <InputGroup.Text style={{backgroundColor:'#efefef'}}> <img src={SearchIcon} alt="icon"/> </InputGroup.Text>
+                <InputGroup.Text style={{backgroundColor:'#efefef'}}  onClick={(e)=>{
+                if(this.state.searchkey !== ''){
+                  e.preventDefault()
+                  this.props.history.push({ 
+                    pathname: '/search',
+                    search: `name=${this.state.searchkey}`
+                  });
+                  this.handleGetSearch(this.state.searchkey)
+                }
+              }}> <img src={SearchIcon} alt="icon"/> </InputGroup.Text>
               </InputGroup.Prepend>
             </InputGroup>
             <hr className="w-100 row m-0 d-none d-md-flex" style={{border:'solid 2px #ededed'}}/>
@@ -123,7 +136,7 @@ class Search extends Component {
 
             {
               items.isFulfilled && (
-                <div className="container-fluid col-12 col-md-6 col-lg-4 d-flex justify-content-between px-2 px-xl-5">
+                <div className="container-fluid col-12 col-md-6 col-lg-4 d-flex justify-content-between px-2 px-xl-5 mb-4">
                   <div className="col-12 col-md-6 col-lg-4 d-flex justify-content-between px-2 px-xl-5">
                     <button className="btn btn-warning btn-main rounded" onClick={(e)=>{
                       e.preventDefault()
