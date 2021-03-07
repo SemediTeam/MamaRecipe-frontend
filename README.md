@@ -75,9 +75,9 @@ If you want to build, type `npm run build`.
 
 ## Screenshoots
 <div align="center">
-    <img width="100%" src="./public/imageedit_5_7053757036.png">
-    <img width="100%" src="./public/imageedit_7_9872707848.png">
-    <img width="100%" src="./public/imageedit_9_4251986274.png">
+    <img width="100%" src="https://media.discordapp.net/attachments/804563702216523827/814804741460328468/unknown.png?width=839&height=472">
+    <img width="100%" src="https://media.discordapp.net/attachments/804563702216523827/814805493192851486/unknown.png?width=839&height=472">
+    <img width="100%" src="https://media.discordapp.net/attachments/804563702216523827/814804618273488936/unknown.png?width=839&height=472">
 </div>
 
 ## Demo Mama Recipe
